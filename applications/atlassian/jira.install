@@ -9,18 +9,17 @@ wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-sof
 chmod +x atlassian-jira.bin
 ./atlassian-jira.bin
 
-
-#Details on where JIRA Software will be installed and the settings that will be used.
-#Installation Directory: /opt/atlassian/jira
-#Home Directory: /var/atlassian/application-data/jira
-#HTTP Port: 8080
-#RMI Port: 8005
-#Install as service: Yes
-
-
-# Database Type: PostgreSQL
-# Hostname: localhost
-# Port: 5433
-# Database: jira
-# Username: jirauser
-# Password: secret
+echo ""
+echo "Details on where JIRA Software will be installed and the settings that will be used."
+echo "Installation Directory: /opt/atlassian/jira"
+echo "Home Directory: /var/atlassian/application-data/jira"
+echo "HTTP Port: 8080"
+echo "RMI Port: 8005"
+echo "Install as service: Yes"
+echo ""
+echo "Database Type: PostgreSQL"
+echo "Hostname: localhost"
+echo "Port: 5433"
+echo "Database: jira"
+echo "Username: jirauser"
+echo "Password: secret"
