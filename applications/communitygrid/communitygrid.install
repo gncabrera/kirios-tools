@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# DESCRIPTION: Community grid installation
+# DEPENDENCIES: none
+
+TOKEN=$1
+if [ -x "$(command -v boinccmd)" ]; then
+    echo "Community Grid is installed"
+else
+    sudo apt-get install -y boinc-manager
+    sudo -u boinc boinccmd --project_attach http://www.worldcommunitygrid.org $TOKEN
+fi
+
+echo "To add more workers, run"
+echo "sudo -u boinc boinccmd --project http://www.worldcommunitygrid.org allowmorework"
+
+
+
+

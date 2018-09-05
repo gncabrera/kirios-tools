@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull mongo:3
+docker pull docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+docker pull graylog/graylog:2.4.0-1
+kirios install service "/opt/kirios/applications/graylog/graylog.service"
+
+
+echo ""
+echo ""
+echo "URL: http://localhost:9000"
+echo ""
+echo "Username: admin"
+echo "Password: admin"
+echo "Info: http://docs.graylog.org/en/2.4/pages/installation/docker.html"

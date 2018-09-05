@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# DESCRIPTION: shows the default nginx config
+# DEPENDENCIES: nginx
+
+cat /etc/nginx/sites-available/default

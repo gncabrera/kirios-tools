@@ -1,0 +1,20 @@
+[Unit]
+Description=Mount and cache Google drive to /mnt/Media
+After=syslog.target local-fs.target network.target
+
+[Service]
+Type=simple
+User=root
+ExecStartPre=-/bin/mkdir /mnt/Media
+ExecStart=/usr/bin/rclone mount \
+  --config /opt/kirios/servers/plex/rclone.conf \
+  --allow-other \
+  --cache-info-age 5m \
+  --cache-writes \
+  mediaCache: /mnt/Media
+ExecStop=/bin/fusermount -u -z /mnt/Media
+ExecStop=/bin/rmdir /mnt/Media
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

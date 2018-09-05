@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/jackett
+kirios install service "/opt/kirios/applications/jackett/jackett.service"
+
+
+
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:9117"
+

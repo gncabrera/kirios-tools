@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# DESCRIPTION: rclone full installation. The config is in /opt/kirios/tools/rclone/rclone.conf
+# DEPENDENCIES: none
+
+sudo apt-get -y install unzip
+echo "Installing rclone"
+wget --no-check-certificate -O- https://rclone.org/install.sh | sudo bash

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# DESCRIPTION: restores the nginx service
+# DEPENDENCIES: nginx
+
+
+kirios tool restore "nginx-vagrant file /etc/nginx/sites-available/default --filename default"
+kirios tool restore "nginx-vagrant file /etc/nginx/.htpasswd --filename .htpasswd"
+
+service nginx reload

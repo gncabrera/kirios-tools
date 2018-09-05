@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+rm -r /root/Stikked
+docker container rm --force "stikked_db_1"
+docker container rm --force "stikked_stikked_1"
+docker volume rm --force "stikked_db_data"

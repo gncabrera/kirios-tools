@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -x "$(command -v docker)" ]; then
+    echo "Docker is installed"
+    exit 0
+else
+    echo "Docker is not installed"
+    exit 1
+fi

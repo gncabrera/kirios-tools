@@ -1,0 +1,30 @@
+[Unit]
+Description=firefly container
+
+[Service]
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a firefly image instance.
+
+ExecStartPre=/usr/bin/docker pull jc5x/firefly-iii:latest
+ExecStartPre=-/usr/bin/docker rm --volumes --force firefly_iii_app
+ExecStartPre=/usr/bin/docker create --restart=no --name=firefly_iii_app \
+  --link=firefly_iii_db \
+  -e FF_DB_HOST=firefly_iii_db \
+  -e FF_DB_NAME=firefly_iii_db \
+  -e FF_DB_USER=firefly_db \
+  -e FF_DB_PASSWORD=firefly_db_secret \
+  -e FF_APP_KEY=P3p3@P4t4t4s@B4il4@L4@M4c4r3n4!! \
+  -e FF_APP_ENV=local \
+  -e APP_URL=https://mgmt.example.com \
+  -e TRUSTED_PROXIES=** \
+  -p 8060:80 \
+  -v firefly_iii_export:/var/www/firefly-iii/storage/export \
+  -v firefly_iii_upload:/var/www/firefly-iii/storage/upload \
+  jc5x/firefly-iii:latest
+
+ExecStart=/usr/bin/docker start --attach firefly_iii_app
+ExecStop=/usr/bin/docker stop --time 30 firefly_iii_app
+
+[Install]
+WantedBy=multi-user.target

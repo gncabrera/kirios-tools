@@ -1,0 +1,23 @@
+[Unit]
+Description=firefly MySQL container
+
+[Service]
+Restart=always
+
+# Pull down the image version, remove old container if it exists, and create a firefly MySQL image instance.
+
+ExecStartPre=/usr/bin/docker pull mysql:8
+ExecStartPre=-/usr/bin/docker rm --volumes --force "firefly_iii_db"
+ExecStartPre=/usr/bin/docker create --restart=no --name=firefly_iii_db \
+    -e MYSQL_DATABASE=firefly_iii_db \
+    -e MYSQL_USER=firefly_db \
+    -e MYSQL_PASSWORD=firefly_db_secret \
+    -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
+    -v firefly_iii_db:/var/lib/mysql \
+    mysql:8
+
+ExecStart=/usr/bin/docker start --attach "firefly_iii_db"
+ExecStop=/usr/bin/docker stop --time 30 "firefly_iii_db"
+
+[Install]
+WantedBy=multi-user.target

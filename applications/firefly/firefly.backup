@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# DESCRIPTION: Backups Firefly III
+# DEPENDENCIES: docker, rclone, firefly
+
+service firefly stop
+service firefly-mysql stop
+
+kirios tool backup "firefly volume firefly_iii_db"
+
+kirios tool backup "firefly volume firefly_iii_export"
+kirios tool backup "firefly volume firefly_iii_upload"
+
+
+service firefly start
+service firefly-mysql start
+

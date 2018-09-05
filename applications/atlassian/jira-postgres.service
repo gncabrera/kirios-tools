@@ -1,0 +1,21 @@
+[Unit]
+Description=JIRA Postgres container
+
+[Service]
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a JISRA Postgres image instance.
+
+ExecStartPre=/usr/bin/docker pull postgres:9
+ExecStartPre=-/usr/bin/docker rm --volumes --force "jira-postgres-container"
+ExecStartPre=/usr/bin/docker create --restart=no --name "jira-postgres-container" \
+  --volume jira-postgres:/var/lib/postgresql/data \
+  --publish "5433:5432" \
+  -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=jirauser -e POSTGRES_DB=jira  \
+  postgres
+
+ExecStart=/usr/bin/docker start --attach "jira-postgres-container"
+ExecStop=/usr/bin/docker stop --time 30 "jira-postgres-container"
+
+[Install]
+WantedBy=multi-user.target

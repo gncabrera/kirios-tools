@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SERVICE=$1
+
+if [[ $# -eq 0 ]] ; then
+    echo 'Must specify service [ovpn]'
+    exit 1
+fi
+
+systemctl stop $SERVICE
+systemctl disable $SERVICE
+rm /etc/systemd/system/$SERVICE.service
+systemctl daemon-reload
+systemctl reset-failed
