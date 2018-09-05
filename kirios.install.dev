@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-ln ${PWD} /opt/kirios
+ln -s ${PWD} /opt/kirios
 
 ln -s /opt/kirios/kirios.py /usr/bin/kirios
 chmod +x /usr/bin/kirios
