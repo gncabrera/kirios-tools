@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker pull mysql:5.7
+docker pull wordpress:latest
+kirios install service "/opt/kirios/applications/wordpress/wordpress.service"

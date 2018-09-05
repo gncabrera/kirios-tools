@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# DESCRIPTION: backs up Nextloud instance
+# DEPENDENCIES: nextcloud
+
+service nextcloud stop
+service nextcloud-mysql stop
+
+kirios tool backup "nextcloud volume nextcloud-mysql"
+
+kirios tool backup "nextcloud volume nextcloud-config"
+kirios tool backup "nextcloud folder /opt/nextcloud"
+
+service nextcloud start
+service nextcloud-mysql start

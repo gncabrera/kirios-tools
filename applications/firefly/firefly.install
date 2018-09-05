@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Firefly III
+# DEPENDENCIES: docker, rclone, nginx
+
+kirios uninstall firefly
+
+docker volume create firefly_iii_db
+docker volume create firefly_iii_export
+docker volume create firefly_iii_upload
+
+docker pull mysql:8
+kirios install service "/opt/kirios/applications/firefly/firefly-mysql.service"
+
+docker pull jc5x/firefly-iii
+kirios install service "/opt/kirios/applications/firefly/firefly.service"
+
+echo "Waiting for the service to start..."
+
+echo -ne "I'm pretty sure it always takes 30 seconds..."
+sleep 10
+echo -ne  "15 seconds left... HO HO HO\r"
+sleep 10
+echo -ne  "5...\r"
+sleep 1
+echo -ne  "4...\r"
+sleep 1
+echo -ne  "3...\r"
+sleep 1
+echo -ne  "2...\r"
+sleep 1
+echo -ne  "1... aaand...\r"
+sleep 1
+echo -ne  "Go!\r"
+echo -ne '\n'
+
+docker exec -it firefly_iii_app php artisan migrate --seed
+docker exec -it firefly_iii_app php artisan firefly:upgrade-database
+docker exec -it firefly_iii_app php artisan firefly:verify
+
+
+
+echo "If failed, run:"
+echo "docker exec -it firefly_iii_app php artisan migrate --seed"
+echo "docker exec -it firefly_iii_app php artisan firefly:upgrade-database"
+echo "docker exec -it firefly_iii_app php artisan firefly:verify"
+echo ""
+echo "Adding backup cron job..."
+kirios tool add-cron "firefly \"0 5 * * * kirios backup firefly\""

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# DESCRIPTION: back ups nginx service
+# DEPENDENCIES: nginx
+
+
+kirios tool backup "nginx-vagrant file /etc/nginx/sites-available/default"
+kirios tool backup "nginx-vagrant file /etc/nginx/.htpasswd"

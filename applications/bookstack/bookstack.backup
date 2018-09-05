@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# DESCRIPTION: backs up Bookstack instance
+# DEPENDENCIES: bookstack
+
+service bookstack stop
+service bookstack-mysql stop
+
+kirios tool backup -- bookstack volume bookstack_db
+
+kirios tool backup -- bookstack volume bookstack_uploads
+kirios tool backup -- bookstack volume bookstack_storage
+
+service bookstack start
+service bookstack-mysql start

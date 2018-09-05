@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Installing postgres
+kirios install docker
+docker pull postgres:9
+
+kirios install service "/opt/kirios/applications/atlassian/bitbucket-postgres.service"
+
+wget https://www.atlassian.com/software/stash/downloads/binary/atlassian-bitbucket-5.8.1-x64.bin -O atlassian-bitbucket.bin
+chmod +x atlassian-bitbucket.bin
+./atlassian-bitbucket.bin
+
+#Details on where Confluence Software will be installed and the settings that will be used.
+#Installation Directory: /opt/atlassian/bitbucket/5.8.1
+#Home Directory: /var/atlassian/application-data/bitbucket
+#HTTP Port: 7990
+#Elastic Search: 7992 and 7993
+#Install as service: Yes
+
+# Database Type: PostgreSQL
+# Hostname: localhost
+# Port: 5432
+# Database: bitbucket
+# Username: bitbucketuser
+# Password: secret

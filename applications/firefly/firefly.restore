@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# DESCRIPTION: Backups Firefly III
+# DEPENDENCIES: docker, rclone, firefly
+
+service firefly stop
+service firefly-mysql stop
+
+# Removing db volumes
+docker stop --time 30 firefly_iii_db
+docker container rm firefly_iii_db
+docker volume rm firefly_iii_db
+
+# Removing firefly volumes
+docker stop --time 30 firefly_iii_app
+docker container rm firefly_iii_app
+docker volume rm firefly_iii_export
+docker volume rm firefly_iii_upload
+
+# Restoring volumes
+kirios tool restore "firefly volume firefly_iii_db --filename firefly_iii_db"
+kirios tool restore "firefly volume firefly_iii_export --filename firefly_iii_export"
+kirios tool restore "firefly volume firefly_iii_upload --filename firefly_iii_upload"
+
+service firefly start
+service firefly-mysql start
+

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Installing postgres
+kirios install docker
+docker pull postgres:9
+
+kirios install service "/opt/kirios/applications/atlassian/confluence-postgres.service"
+
+wget https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.6.1-x64.bin -O atlassian-confluence.bin
+chmod +x atlassian-confluence.bin
+./atlassian-confluence.bin
+
+#Details on where Confluence Software will be installed and the settings that will be used.
+#Installation Directory: /opt/atlassian/confluence
+#Home Directory: /var/atlassian/application-data/confluence
+#HTTP Port: 8090
+#RMI Port: 8000
+#Install as service: Yes
+
+# Database Type: PostgreSQL
+# Hostname: localhost
+# Port: 5432
+# Database: confluence
+# Username: confluenceuser
+# Password: secret

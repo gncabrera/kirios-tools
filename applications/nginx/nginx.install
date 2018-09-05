@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+# DESCRIPTION: installs Nginx reverse proxy. Usage: kirios nginx install myconfig --password
+# DEPENDENCIES: none
+
+import argparse
+import subprocess
+import os
+import json
+import socket
+import time
+import re
+from glob import glob
+from itertools import islice
+import datetime
+import shutil
+
+EMPTY = 'empty'
+
+
+parser = argparse.ArgumentParser(description='Backup tool(https://kirios.co)')
+parser.add_argument('config', nargs='?', default=EMPTY, help = 'name of the configuration file to setup')
+parser.add_argument('--password', action='store_true', help = 'set password for basic auth')
+
+args = parser.parse_args()
+
+def runShellCommand(command):
+     return subprocess.call(command, shell = True)
+
+
+# Installing nginx
+if(runShellCommand("kirios tool check-install nginx")):
+    pass
+else:
+    runShellCommand("apt-get update && apt-get install -y nginx")
+
+
+CONFIG_FILE = "/opt/kirios/applications/nginx/config/" + args.config + ".config"
+if(os.path.isfile(CONFIG_FILE)):
+    shutil.copyfile('/etc/nginx/sites-available/default', '/etc/nginx/sites-available/default.original')
+    shutil.copyfile(CONFIG_FILE, '/etc/nginx/sites-available/default')
+else:
+    print("File " + CONFIG_FILE + " does not exist!")
+    exit(-1)
+
+if(args.password):
+    runShellCommand("kirios nginx password")
+
+
+runShellCommand("service nginx reload")

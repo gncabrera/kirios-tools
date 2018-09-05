@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR=$1
+
+
+cd $DIR
+
+docker-compose down --volumes
+docker-compose rm --force --stop -v  

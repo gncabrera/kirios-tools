@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Installing postgres
+kirios install docker
+docker pull postgres:9
+kirios install service "/opt/kirios/applications/atlassian/jira-postgres.service"
+
+wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.7.0-x64.bin -O atlassian-jira.bin
+chmod +x atlassian-jira.bin
+./atlassian-jira.bin
+
+
+#Details on where JIRA Software will be installed and the settings that will be used.
+#Installation Directory: /opt/atlassian/jira
+#Home Directory: /var/atlassian/application-data/jira
+#HTTP Port: 8080
+#RMI Port: 8005
+#Install as service: Yes
+
+
+# Database Type: PostgreSQL
+# Hostname: localhost
+# Port: 5433
+# Database: jira
+# Username: jirauser
+# Password: secret

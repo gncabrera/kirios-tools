@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull mysql:5.7.21
+docker pull solidnerd/bookstack:0.22.0
+kirios install service "/opt/kirios/applications/bookstack/bookstack.service"
+
+
+echo ""
+echo ""
+echo "URL: http://localhost:8050"
+echo ""
+echo "Username: admin@admin.com"
+echo "Password: password"
+echo "Docker GitHub source: https://github.com/solidnerd"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Graylog
+
+
+kirios uninstall service graylog
+kirios uninstall docker-compose "/opt/kirios/applications/graylog"

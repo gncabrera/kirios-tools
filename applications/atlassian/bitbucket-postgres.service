@@ -1,0 +1,21 @@
+[Unit]
+Description=BitBucket container
+
+[Service]
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a bitbucket Postgre image instance.
+
+ExecStartPre=/usr/bin/docker pull postgres:9
+ExecStartPre=-/usr/bin/docker rm --volumes --force "bitbucket-postgres-container"
+ExecStartPre=/usr/bin/docker create --restart=no --name "bitbucket-postgres-container" \
+  --volume bitbucket-postgres:/var/lib/postgresql/data \
+  --publish "5434:5432" \
+  -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=bitbucketuser -e POSTGRES_DB=bitbucket  \
+  postgres
+
+ExecStart=/usr/bin/docker start --attach "bitbucket-postgres-container"
+ExecStop=/usr/bin/docker stop --time 30 "bitbucket-postgres-container"
+
+[Install]
+WantedBy=multi-user.target

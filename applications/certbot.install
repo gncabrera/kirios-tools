@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs certbot
+# DEPENDENCIES: none
+
+apt-get update
+apt-get install software-properties-common -y
+add-apt-repository ppa:certbot/certbot
+apt-get update
+apt-get install python-certbot-nginx  -y

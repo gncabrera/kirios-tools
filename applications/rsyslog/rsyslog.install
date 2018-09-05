@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+add-apt-repository ppa:adiscon/v8-stable
+apt-get update
+apt-get install rsyslog
+
+echo "*.* @@graylog.kirios.co:514;RSYSLOG_SyslogProtocol23Format" > /etc/rsyslog.d/kirios.conf
+
+service rsyslog restart

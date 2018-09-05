@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service nextcloud
+docker stop --time 30 "nextcloud"
+docker container rm "nextcloud"
+docker volume rm "nextcloud"
+rm -r /opt/nextcloud
+
+kirios uninstall service nextcloud-mysql
+docker stop --time 30 "nextcloud_mysql"
+docker container rm "nextcloud_mysql"
+docker volume rm "nextcloud_mysql"

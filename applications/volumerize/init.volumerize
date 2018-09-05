@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -t|--target=*)
+      TARGET="${1#*=}"
+      ;;
+    -n|--name=*)
+      NAME="${1#*=}"
+      ;;
+    *)
+      printf "***************************\n"
+      printf "* Error: Invalid argument.*\n"
+      printf "***************************\n"
+      exit 1
+  esac
+  shift
+done
+
+kirios secrets load gdrive-creds
+echo $CLIENT_ID
+
+#docker run -it --rm \
+#    -v volumerize_cache:/volumerize-cache \
+#    -v volumerize_credentials_$NAME:/credentials \
+#    -e "VOLUMERIZE_SOURCE=/source" \
+#    -e "VOLUMERIZE_TARGET=$TARGET" \
+#    -e "GOOGLE_DRIVE_ID=$CLIENT_ID" \
+#    -e "GOOGLE_DRIVE_SECRET=$CLIENT_SECRET" \
+#    blacklabelops/volumerize backup

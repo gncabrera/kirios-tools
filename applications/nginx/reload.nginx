@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# DESCRIPTION: reloads the nginx service
+# DEPENDENCIES: nginx
+
+service nginx reload

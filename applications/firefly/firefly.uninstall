@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Firefly III
+# DEPENDENCIES: docker
+
+kirios uninstall service firefly
+docker stop --time 30 firefly_iii_app
+docker container rm firefly_iii_app
+docker volume rm firefly_iii_export
+docker volume rm firefly_iii_upload
+
+kirios uninstall service firefly-mysql
+docker stop --time 30 firefly_iii_db
+docker container rm firefly_iii_db
+docker volume rm firefly_iii_db
+

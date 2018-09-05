@@ -1,0 +1,21 @@
+[Unit]
+Description=Confluence Postgres container
+
+[Service]
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a Confluence Postgre image instance.
+
+ExecStartPre=/usr/bin/docker pull postgres:9
+ExecStartPre=-/usr/bin/docker rm --volumes --force "confluence-postgres-container"
+ExecStartPre=/usr/bin/docker create --restart=no --name "confluence-postgres-container" \
+  --volume confluence-postgres:/var/lib/postgresql/data \
+  --publish "5432:5432" \
+  -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=confluenceuser -e POSTGRES_DB=confluence  \
+  postgres
+
+ExecStart=/usr/bin/docker start --attach "confluence-postgres-container"
+ExecStop=/usr/bin/docker stop --time 30 "confluence-postgres-container"
+
+[Install]
+WantedBy=multi-user.target

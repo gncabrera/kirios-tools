@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service jackett
+docker stop --time 30 "jackett"
+docker container rm "jackett"
+docker volume rm "jackett_config"
+docker volume rm "jackett_downloads"
+
+
