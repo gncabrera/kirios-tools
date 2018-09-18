@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+service wordpress stop
+volumerize backup wordpress wordpress_wordpress_db_data
+service wordpress start

@@ -11,15 +11,16 @@ chmod +x atlassian-bitbucket.bin
 ./atlassian-bitbucket.bin
 
 #Details on where Confluence Software will be installed and the settings that will be used.
-#Installation Directory: /opt/atlassian/bitbucket/5.8.1
-#Home Directory: /var/atlassian/application-data/bitbucket
-#HTTP Port: 7990
-#Elastic Search: 7992 and 7993
-#Install as service: Yes
-
-# Database Type: PostgreSQL
-# Hostname: localhost
-# Port: 5432
-# Database: bitbucket
-# Username: bitbucketuser
-# Password: secret
+echo ""
+echo "Installation Directory: /opt/atlassian/bitbucket/5.8.1"
+echo "Home Directory: /var/atlassian/application-data/bitbucket"
+echo "HTTP Port: 7990"
+echo "Elastic Search: 7992 and 7993"
+echo "Install as service: Yes"
+echo ""
+echo "Database Type: PostgreSQL"
+echo "Hostname: localhost"
+echo "Port: 5432"
+echo "Database: bitbucket"
+echo "Username: bitbucketuser"
+echo "Password: secret"
