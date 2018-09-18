@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+service jira stop
+volumerize backup jira jira_jiradata jira_postgresqldata
+service jira start
