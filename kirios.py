@@ -20,7 +20,7 @@ KIRIOS_LOGO = """
 |   <| | |  | | (_) \__ \\
 |_|\_\_|_|  |_|\___/|___/
 
-Kirios tools v1.0.0
+Kirios tools v1.1.0
 https://kirios.co
 """
 
