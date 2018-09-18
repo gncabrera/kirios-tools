@@ -6,7 +6,7 @@ A set of tools to run all my applications
 Remember: *NEVER* install a script without checking it first
 
 ```
-wget -O kirios.install https://raw.githubusercontent.com/gncabrera/kirios-tools/master/kirios.install && chmod +x kirios.install && ./kirios.install
+wget -O kirios.install https://raw.githubusercontent.com/gncabrera/kirios-tools/master/kirios.install && chmod +x kirios.install && sudo ./kirios.install
 ```
 
 ## Installation DEV
