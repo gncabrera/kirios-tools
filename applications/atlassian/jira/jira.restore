@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+kirios uninstall jira
+volumerize restore jira jira_jiradata 
+volumerize restore jira jira_postgresqldata
+kirios install jira

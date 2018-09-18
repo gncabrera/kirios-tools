@@ -1,13 +1,11 @@
 #!/bin/bash
 
 #Installing postgres
-kirios install docker
-docker pull postgres:9
-kirios install service "/opt/kirios/applications/atlassian/jira-postgres.service"
+docker pull blacklabelops/jira
+docker pull blacklabelops/postgres
+kirios install service "/opt/kirios/applications/atlassian/jira/jira.service"
 
-wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.7.0-x64.bin -O atlassian-jira.bin
-chmod +x atlassian-jira.bin
-./atlassian-jira.bin
+kirios tool add-cron "jira \"0 5 * * * kirios backup jira\""
 
 echo ""
 echo "Details on where JIRA Software will be installed and the settings that will be used."
