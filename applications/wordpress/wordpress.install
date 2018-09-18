@@ -3,3 +3,5 @@
 docker pull mysql:5.7
 docker pull wordpress:latest
 kirios install service "/opt/kirios/applications/wordpress/wordpress.service"
+
+kirios tool add-cron "wordpress \"0 5 * * * kirios backup wordpress\""
