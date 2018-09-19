@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+service confluence stop
+volumerize backup confluence confluence_confluence_postgres confluence_confluence_data
+service confluence start

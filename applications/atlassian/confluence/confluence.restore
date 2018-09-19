@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+kirios uninstall confluence
+volumerize restore confluence confluence_confluence_postgres 
+volumerize restore confluence confluence_confluence_data
+kirios install confluence

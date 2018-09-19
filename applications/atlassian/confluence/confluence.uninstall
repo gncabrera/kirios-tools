@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service confluence
+kirios uninstall docker-compose "/opt/kirios/applications/atlassian/confluence"
