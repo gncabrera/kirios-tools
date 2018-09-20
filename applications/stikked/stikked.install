@@ -3,13 +3,6 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-kirios install docker
-cd ~
-git clone https://github.com/claudehohl/Stikked.git
-cp /opt/kirios/applications/stikked/stikked-envvars.txt ~/Stikked/docker/stikked-envvars.txt
-cp /opt/kirios/applications/stikked/docker-compose.yml ~/Stikked/docker-compose.yml
-
-cd ~/Stikked
-docker build -t stikked .
+docker pull kirios/stikked
 kirios install service "/opt/kirios/applications/stikked/stikked.service"
 

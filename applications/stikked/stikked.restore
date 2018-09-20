@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+kirios uninstall stikked
+volumerize restore stikked stikked_db_data
+kirios install stikked
