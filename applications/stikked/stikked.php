@@ -14,7 +14,7 @@ $config['site_name'] = 'Stikked';
  * Set the base URL of Stikked. WITH trailing slash!
  *
 */
-$config['base_url'] = 'https://pastebin.kirios.co/';
+$config['base_url'] = 'https://paste.kirios.co/';
 
 /**
  * Database connection

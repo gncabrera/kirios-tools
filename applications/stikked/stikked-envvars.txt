@@ -5,7 +5,7 @@ MYSQL_PASSWORD=stikked
 
 STIKKED_SITE_NAME=Stikked
 # Note that there is no need to escape the URL
-STIKKED_BASE_URL=https://pastebin.example.com/
+STIKKED_BASE_URL=https://paste.kirios.co/
 
 # This should match the database container name
 STIKKED_DB_HOSTNAME=db
