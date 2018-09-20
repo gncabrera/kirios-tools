@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Installing postgres
+docker pull jenkins/jenkins:2.141
+kirios install service "/opt/kirios/applications/jenkins/jenkins.service"
+
+kirios tool add-cron "jenkins \"0 5 * * * kirios backup jenkins\""

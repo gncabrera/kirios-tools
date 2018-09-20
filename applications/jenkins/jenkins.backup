@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service jenkins stop
+volumerize backup jenkins jenkins_jenkins_home
+/usr/sbin/service jenkins start
