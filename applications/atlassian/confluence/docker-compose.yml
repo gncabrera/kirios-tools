@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+   db:
+     image: postgres:9
+     volumes:
+       - confluence_postgres:/var/lib/postgresql/data
+     restart: always
+     environment:
+       POSTGRES_PASSWORD: secret
+       POSTGRES_USER: confluenceuser
+       POSTGRES_DB: confluence
+
+   confluence:
+     depends_on:
+       - db
+     image: atlassian/confluence-server:6.11
+     ports:
+       - "8090:8090"
+       - "8091:8091"
+     restart: always
+     volumes:
+       - confluence_data:/var/atlassian/application-data/confluence
+     environment:
+       CATALINA_CONNECTOR_PROXYNAME: wiki.kirios.co
+       CATALINA_CONNECTOR_PROXYPORT:
+       CATALINA_CONNECTOR_SCHEME: https
+       CATALINA_CONNECTOR_SECURE: "true"
+volumes:
+    confluence_postgres:
+    confluence_data:

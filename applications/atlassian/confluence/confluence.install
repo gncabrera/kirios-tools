@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Installing postgres
+docker pull atlassian/confluence-server:6.11
+docker pull postgres:9
+kirios install service "/opt/kirios/applications/atlassian/confluence/confluence.service"
+
+kirios tool add-cron "confluence \"30 4 * * * kirios backup confluence\""

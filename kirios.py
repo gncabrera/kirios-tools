@@ -20,11 +20,11 @@ KIRIOS_LOGO = """
 |   <| | |  | | (_) \__ \\
 |_|\_\_|_|  |_|\___/|___/
 
-Kirios tools v1.1.0
+Kirios tools v1.2.1
 https://kirios.co
 """
 
-VERSION = "Kirios Tools v1.0.0"
+VERSION = "Kirios Tools v1.2.1"
 BASE_FOLDER = '/opt/kirios'
 
 UPDATE = 'update'
