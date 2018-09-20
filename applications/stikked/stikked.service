@@ -1,12 +1,12 @@
-# /etc/systemd/system/docker-compose-app.service
+# /etc/systemd/system/stikked.service
 
 [Unit]
-Description=Docker Compose Stikked Service
+Description=Stikked Docker Compose Application Service
 Requires=docker.service
 After=docker.service
 
 [Service]
-WorkingDirectory=/root/Stikked
+WorkingDirectory=/opt/kirios/applications/stikked
 ExecStart=/usr/local/bin/docker-compose up
 ExecStop=/usr/local/bin/docker-compose down
 TimeoutStartSec=0
