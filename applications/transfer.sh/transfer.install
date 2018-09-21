@@ -3,6 +3,6 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-docker pull registry.gitlab.com/gncabrera/stikked
-kirios install service "/opt/kirios/applications/stikked/stikked.service"
+docker pull registry.gitlab.com/gncabrera/transfer
+kirios install service "/opt/kirios/applications/transfer/transfer.service"
 
