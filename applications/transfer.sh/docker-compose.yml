@@ -1,0 +1,7 @@
+version: "3.2"
+
+services:
+  transfer:
+    image: registry.gitlab.com/gncabrera/transfer.sh
+    ports:
+      - 8030:80
