@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+   transmission:
+     image: linuxserver/transmission
+     ports:
+       - "9080:9091"
+       - "51480:51480"
+       - "51480:51480/udp"
+     restart: always
+     volumes:
+       - config:/config
+       - downloads:/downloads
+       - watch:/watch
+     environment:
+       TZ: Europe/London
+volumes:
+    config:
+    downloads:
+    watch:

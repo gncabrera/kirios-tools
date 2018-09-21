@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service transmission stop
+volumerize backup transmission transmission_config transmission_downloads transmission_watch
+/usr/sbin/service transmission start

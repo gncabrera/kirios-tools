@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull docker pull linuxserver/transmission
+kirios install service "/opt/kirios/applications/transmission/transmission.service"
+
+kirios tool add-cron "transmission \"45 5 * * * kirios backup transmission\""
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:8070"
+

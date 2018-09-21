@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+kirios uninstall transmission
+volumerize restore transmission transmission_config 
+volumerize restore transmission transmission_downloads
+volumerize restore transmission transmission_watch
+kirios install transmission
