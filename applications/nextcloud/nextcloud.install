@@ -3,19 +3,13 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
+docker pull nextcloud:13.0.5
 docker pull mysql:5.5
-kirios install service "/opt/kirios/applications/nextcloud/nextcloud-mysql.service"
-
-docker pull linuxserver/nextcloud
 kirios install service "/opt/kirios/applications/nextcloud/nextcloud.service"
 
+kirios tool add-cron "nextcloud \"45 5 * * * kirios backup nextcloud\""
 
-echo "Database setup: "
-echo "user:pwd => root:secret"
-echo "database => nextcloud"
-echo "host => 172.17.0.2:3306"
 echo "Chicken chicken chicken"
 echo "-----------------------------"
-echo "Port: 8070"
-echo "Check hosts file with: "
-echo "docker exec -it -w /etc nextcloud-container cat hosts"
+echo "Run into http://localhost:8070"
+
