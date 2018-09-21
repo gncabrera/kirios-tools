@@ -4,4 +4,3 @@
 # DEPENDENCIES: docker, rclone
 
 kirios uninstall service transfer
-kirios uninstall docker-compose "/opt/kirios/applications/transfer"
