@@ -3,10 +3,26 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-docker pull docker pull linuxserver/transmission
-kirios install service "/opt/kirios/applications/transmission/transmission.service"
+if [ -z "$1" ]
+  then
+    echo "Usage: kirios install transmission <name>"
+    exit 1
+fi
 
-kirios tool add-cron "transmission \"45 5 * * * kirios backup transmission\""
+sudo apt-get install rpl -y
+NAME=$1
+
+
+
+docker pull linuxserver/transmission
+cp "/opt/kirios/applications/transmission/transmission.service" "/tmp/transmission_$NAME.service"
+
+rpl NAME $NAME /tmp/transmission_$NAME.service
+
+
+kirios install service "/tmp/transmission_$NAME.service"
+
+kirios tool add-cron "transmission_$NAME \"45 5 * * * kirios backup transmission $NAME\""
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"

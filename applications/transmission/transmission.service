@@ -1,18 +1,25 @@
-# /etc/systemd/system/transmission.service
-
 [Unit]
-Description=Transmission Docker Compose Application Service
-Requires=docker.service
-After=docker.service
+Description=transmission container
 
 [Service]
-WorkingDirectory=/opt/kirios/applications/transmission
-ExecStart=/usr/local/bin/docker-compose up
-ExecStop=/usr/local/bin/docker-compose down
-TimeoutStartSec=0
-Restart=on-failure
-StartLimitIntervalSec=60
-StartLimitBurst=3
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a transmission image instance.
+
+ExecStartPre=/usr/bin/docker pull linuxserver/transmission
+ExecStartPre=-/usr/bin/docker rm --volumes --force transmission_NAME
+
+ExecStartPre=/usr/bin/docker create --restart=no  --name=transmission_NAME \
+-v transmission_NAME_config:/config \
+-v transmission_NAME_downloads:/downloads \
+-v transmission_NAME_watch:/watch \
+-e TZ=Europe/London \
+-p 9091:9091 -p 51480:51480 \
+-p 51480:51480/udp \
+linuxserver/transmission
+
+ExecStart=/usr/bin/docker start --attach transmission_NAME
+ExecStop=/usr/bin/docker stop --time 30 transmission_NAME
 
 [Install]
 WantedBy=multi-user.target
