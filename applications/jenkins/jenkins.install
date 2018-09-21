@@ -3,7 +3,7 @@
 #Installing postgres
 docker login registry.gitlab.com
 
-docker pull registry.gitlab.com/gncabrera/docker/jenkins:latest
+docker pull registry.gitlab.com/gncabrera/jenkins:latest
 kirios install service "/opt/kirios/applications/jenkins/jenkins.service"
 
 kirios tool add-cron "jenkins \"0 5 * * * kirios backup jenkins\""
