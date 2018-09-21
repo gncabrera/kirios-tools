@@ -1,24 +1,18 @@
+# /etc/systemd/system/jackett.service
+
 [Unit]
-Description=Jackett container
+Description=Jackett Docker Compose Application Service
+Requires=docker.service
+After=docker.service
 
 [Service]
-Restart=always
-
-# Pull down the latest image version, remove old container if it exists, and create a Jackett image instance.
-
-ExecStartPre=/usr/bin/docker pull linuxserver/jackett:latest
-ExecStartPre=-/usr/bin/docker rm --volumes --force "jackett"
-
-ExecStartPre=/usr/bin/docker create --restart=no --name "jackett" \
--v jackett_config:/config \
--v jackett_downloads:/downloads \
--e TZ=Europe/London \
--v /etc/localtime:/etc/localtime:ro \
--p 9117:9117 \
-linuxserver/jackett
-
-ExecStart=/usr/bin/docker start --attach "jackett"
-ExecStop=/usr/bin/docker stop --time 30 "jackett"
+WorkingDirectory=/opt/kirios/applications/jackett
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service jackett stop
+volumerize backup jackett jackett_jackett_config jackett_jackett_downloads
+/usr/sbin/service jackett start

@@ -7,11 +7,7 @@ Restart=always
 # Pull down the latest image version, remove old container if it exists, and create a Transfer.sh image instance.
 
 ExecStartPre=/usr/bin/docker pull registry.gitlab.com/gncabrera/transfer.sh
-ExecStartPre=[ ! "$(/usr/bin/docker ps -a | grep transfer.sh)" ] && /usr/bin/docker create --restart=no --name=transfer.sh \
-  -p 8030:8080 \
-  registry.gitlab.com/gncabrera/transfer.sh \
-  --provider local \
-  --basedir /tmp/
+ExecStartPre=/bin/bash -c '[ ! "$(/usr/bin/docker ps -a | grep transfer.sh)" ] && /usr/bin/docker create --restart=no --name=transfer.sh -p 8030:8080 registry.gitlab.com/gncabrera/transfer.sh --provider local --basedir /tmp/'
 
 
 ExecStart=/usr/bin/docker start --attach transfer.sh

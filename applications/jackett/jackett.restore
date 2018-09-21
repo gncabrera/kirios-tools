@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+kirios uninstall jackett
+volumerize restore jackett jackett_jackett_config 
+volumerize restore jackett jackett_jackett_downloads
+kirios install jackett

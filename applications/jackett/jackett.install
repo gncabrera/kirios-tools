@@ -6,8 +6,7 @@
 docker pull linuxserver/jackett
 kirios install service "/opt/kirios/applications/jackett/jackett.service"
 
-
-
+kirios tool add-cron "jackett \"0 5 * * * kirios backup jackett\""
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"
