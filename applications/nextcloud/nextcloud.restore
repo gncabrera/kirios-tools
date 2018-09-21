@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# DESCRIPTION: restores a Nextcloud instance
-# DEPENDENCIES: nextcloud
 
-docker stop --time 30 "nextcloud-container"
-docker container rm "nextcloud-container"
-docker volume rm "nextcloud-config"
-rm -r /opt/nextcloud
-
-docker stop --time 30 "nextcloud-mysql-container"
-docker container rm "nextcloud-mysql-container"
-docker volume rm "nextcloud-mysql"
+kirios uninstall nextcloud
+volumerize restore nextcloud nextcloud_nextcloud 
+volumerize restore nextcloud nextcloud_db_data
+kirios install nextcloud
