@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull registry.gitlab.com/gncabrera/stikked
+kirios install service "/opt/kirios/applications/stikked/stikked.service"
+
