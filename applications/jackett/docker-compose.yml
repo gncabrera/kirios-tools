@@ -1,0 +1,17 @@
+version: "3.2"
+
+services:
+  app:
+    image: linuxserver/jackett
+    volumes:
+      - jackett_config:/config
+      - jackett_downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9117:9117
+    environment:
+      - 'TZ=Europe/London'
+volumes:
+  jackett_config:
+  jackett_downloads:
+
