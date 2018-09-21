@@ -3,6 +3,9 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-docker pull registry.gitlab.com/gncabrera/transfer
+docker login registry.gitlab.com
+docker pull registry.gitlab.com/gncabrera/transfer.sh
 kirios install service "/opt/kirios/applications/transfer/transfer.service"
+
+
 
