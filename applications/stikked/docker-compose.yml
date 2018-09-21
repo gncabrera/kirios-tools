@@ -10,7 +10,7 @@ services:
   stikked:
     depends_on:
       - db
-    image: kirios/stikked
+    image: registry.gitlab.com/gncabrera/stikked
     env_file: stikked-envvars.txt
     ports:
       - 8050:80
