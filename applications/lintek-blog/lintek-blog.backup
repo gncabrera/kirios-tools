@@ -2,5 +2,5 @@
 
 
 /usr/sbin/service lintek-blog stop
-volumerize backup lintek-blog lintek-blog_db_data
+volumerize backup lintek-blog lintek-blog_db_data lintek-blog_html
 /usr/sbin/service lintek-blog start

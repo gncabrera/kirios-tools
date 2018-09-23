@@ -3,4 +3,5 @@
 
 kirios uninstall lintek-blog
 volumerize restore lintek-blog lintek-blog_db_data
+volumerize restore lintek-blog lintek-blog_html
 kirios install lintek-blog
