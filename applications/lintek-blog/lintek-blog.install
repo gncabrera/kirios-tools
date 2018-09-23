@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker pull mysql:5.7
+docker pull wordpress:latest
+kirios install service "/opt/kirios/applications/lintek-blog/lintek-blog.service"
+
+kirios tool add-cron "lintek-blog \"0 5 * * * kirios backup lintek-blog\""
