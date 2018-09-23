@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+    echo "Usage: kirios restore transmission <name>"
+    exit 1
+fi
+
+NAME=$1
+
+kirios uninstall transmission $NAME
+volumerize restore transmission "transmission_"$NAME"_config"
+volumerize restore transmission "transmission_"$NAME"_downloads"
+volumerize restore transmission "transmission_"$NAME"_watch"
+kirios install transmission $NAME

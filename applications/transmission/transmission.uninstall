@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+if [ -z "$1" ]
+  then
+    echo "Usage: kirios uninstall transmission <name>"
+    exit 1
+fi
+
+NAME=$1
+
+kirios uninstall service transmission_$NAME
+docker stop --time 30 transmission_$NAME
+docker container rm transmission_$NAME
+docker volume rm "transmission_"$NAME"_config"
+docker volume rm "transmission_"$NAME"_downloads"
+docker volume rm "transmission_"$NAME"_watch"
