@@ -5,7 +5,7 @@ services:
     image: linuxserver/sonarr
     volumes:
       - config:/config
-      - tv:/tv
+      - /mnt/Media:/media
       - downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -14,6 +14,6 @@ services:
       - 'TZ=Europe/London'
 volumes:
   config:
-  tv:
+  media:
   downloads:
 

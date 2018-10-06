@@ -3,6 +3,5 @@
 
 kirios uninstall sonarr
 volumerize restore sonarr sonarr_config 
-volumerize restore sonarr sonarr_tv 
 volumerize restore sonarr sonarr_downloads
 kirios install sonarr
