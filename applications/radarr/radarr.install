@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/radarr
+kirios install service "/opt/kirios/applications/radarr/radarr.service"
+
+kirios tool add-cron "radarr \"30 5 * * * kirios backup radarr\""
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:9117"
+
