@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service sonarr stop
+volumerize backup sonarr sonarr_config sonarr_tv sonarr_downloads
+/usr/sbin/service sonarr start
