@@ -6,7 +6,7 @@ services:
     volumes:
       - config:/config
       - /mnt/Media:/media
-      - downloads:/downloads
+      - /home/transmission/misc/downloads/complete:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
