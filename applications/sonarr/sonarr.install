@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/sonarr
+kirios install service "/opt/kirios/applications/sonarr/sonarr.service"
+
+kirios tool add-cron "sonarr \"30 5 * * * kirios backup sonarr\""
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:9117"
+

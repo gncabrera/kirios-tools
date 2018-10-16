@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  app:
+    image: linuxserver/radarr
+    volumes:
+      - config:/config
+      - /mnt/Media:/media
+      - /home/transmission/misc/downloads/complete:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7878:7878
+    environment:
+      - 'TZ=Europe/London'
+volumes:
+  config:
+  media:
+  downloads:
+

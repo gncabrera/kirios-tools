@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+kirios uninstall radarr
+volumerize restore radarr radarr_config 
+volumerize restore radarr radarr_downloads
+kirios install radarr

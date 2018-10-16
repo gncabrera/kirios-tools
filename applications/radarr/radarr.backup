@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service radarr stop
+volumerize backup radarr radarr_config radarr_downloads
+/usr/sbin/service radarr start
