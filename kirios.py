@@ -120,7 +120,7 @@ def get_all_scripts(query):
 
     
 
-    if os.path.isdir(SECRETS_FOLDER)
+    if os.path.isdir(SECRETS_FOLDER):
         result = [y for x in os.walk(SECRETS_FOLDER) for y in glob(os.path.join(x[0], query))]
         for res in result:
             script = Script(res)
