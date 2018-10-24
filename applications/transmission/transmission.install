@@ -10,12 +10,6 @@ if [ "$#" -ne 4 ]
     exit 1
 fi
 
-if [ -z "$2" ]
-  then
-    echo "Usage: kirios install transmission <name> <downloads_folder>"
-    exit 1
-fi
-
 sudo apt-get install rpl -y
 NAME=$1
 DOWNLOADS_FOLDER=$2
@@ -38,5 +32,5 @@ kirios tool add-cron "transmission_$NAME \"45 5 * * * kirios backup transmission
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"
-echo "Run into http://localhost:8070"
+echo "Run into http://localhost:$PORT_WEB"
 

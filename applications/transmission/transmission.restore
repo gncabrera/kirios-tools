@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [ -z "$1" ]
+if [ "$#" -ne 4 ]
   then
-    echo "Usage: kirios restore transmission <name>"
+    echo "Usage: kirios install transmission <name> <downloads_folder> <web_port> <udp_connection_port>"
+    echo "Example: kirios install transmission rarbg \"/home/transmission\" 9091 51480"
     exit 1
 fi
 
@@ -11,4 +12,4 @@ NAME=$1
 kirios uninstall transmission $NAME
 volumerize restore transmission "transmission_"$NAME"_config"
 volumerize restore transmission "transmission_"$NAME"_watch"
-kirios install transmission $NAME
+kirios install transmission $#
