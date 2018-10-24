@@ -12,4 +12,4 @@ NAME=$1
 kirios uninstall transmission $NAME
 volumerize restore transmission "transmission_"$NAME"_config"
 volumerize restore transmission "transmission_"$NAME"_watch"
-kirios install transmission $#
+kirios install transmission "$#"
