@@ -5,8 +5,7 @@
 
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
-
-kirios tool add-cron  "0 */12 * * * /opt/kirios/applications/youtube-dl/youtube-archive.sh >> ~/YouTube/log/youtube-dl.log 2>&1"
-
+sudo apt-get install ffmpeg -y
+sudo ln -s /usr/bin/python3 /usr/bin/python
 
 echo "Run 'ln -s /usr/bin/python3 /usr/bin/python' if to link python3 as python"
