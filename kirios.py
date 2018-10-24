@@ -107,7 +107,9 @@ def update():
     chmod()
 
 def chmod():
-    runShellCommand("find -L " +  BASE_FOLDER + " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\)' -exec chmod +x {} \;")
+    opts = " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\)' -exec chmod +x {} \;"
+    runShellCommand("find -L " +  BASE_FOLDER + opts)
+    runShellCommand("find -L " +  SECRETS_FOLDER + opts)
 
 
 def get_all_scripts(query):
