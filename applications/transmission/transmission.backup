@@ -9,5 +9,5 @@ fi
 NAME=$1
 
 /usr/sbin/service transmission_$NAME stop
-volumerize backup "transmission_$NAME" "transmission_"$NAME"_config" "transmission_"$NAME"_downloads" "transmission_"$NAME"_watch"
+volumerize backup "transmission_$NAME" "transmission_"$NAME"_config" "transmission_"$NAME"_watch"
 /usr/sbin/service transmission_$NAME start
