@@ -1,0 +1,20 @@
+version: "3.2"
+
+services:
+  app:
+    image: linuxserver/rutorrent
+    volumes:
+      - config:/config
+      - /home/rutorrent/downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8170:80
+      - 5000:5000
+      - 6881:6881/udp
+    environment:
+      - 'TZ=Europe/London'
+volumes:
+  config:
+  media:
+  downloads:
+

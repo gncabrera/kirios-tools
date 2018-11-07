@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/rutorrent
+kirios install service "/opt/kirios/applications/rutorrent/rutorrent.service"
+
+kirios tool add-cron "rutorrent \"38 3 * * * kirios backup rutorrent\""
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:8170"
+

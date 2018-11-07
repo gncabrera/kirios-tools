@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+/usr/sbin/service rutorrent stop
+volumerize backup rutorrent rutorrent_config
+/usr/sbin/service rutorrent start
