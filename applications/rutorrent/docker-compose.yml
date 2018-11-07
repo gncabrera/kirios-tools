@@ -10,7 +10,7 @@ services:
     ports:
       - 8170:80
       - 5000:5000
-      - 6881:6881/udp
+      - 51413:51413/udp
     environment:
       - 'TZ=Europe/London'
 volumes:
