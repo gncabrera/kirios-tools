@@ -15,6 +15,4 @@ services:
       - 'TZ=Europe/London'
 volumes:
   config:
-  media:
-  downloads:
 
