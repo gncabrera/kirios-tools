@@ -10,6 +10,7 @@ services:
     ports:
       - 8170:80
       - 5000:5000
+      - 51413:51413
       - 51413:51413/udp
     environment:
       - 'TZ=Europe/London'
