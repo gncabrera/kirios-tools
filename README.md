@@ -1,5 +1,5 @@
 # kirios-tools
-A set of tools to run all my applications
+A set of tools to run all applications in the servers. I update it whenever I install something new in one of my servers.
 
 
 ## Installation
