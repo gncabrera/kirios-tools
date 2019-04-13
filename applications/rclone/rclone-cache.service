@@ -22,10 +22,8 @@ ExecStart=/usr/bin/rclone mount MediaCachedCrypt: /mnt/Media \
    --log-level INFO \
    --config /opt/kirios-secrets/rclone.conf
 
-ExecStop=/usr/bin/sudo /usr/bin/fusermount -uz /gmedia
+ExecStop=/usr/bin/sudo /bin/fusermount -uz /mnt/Media
 Restart=on-abort
-User=ubuntu
-Group=ubuntu
 
 [Install]
 WantedBy=default.target
