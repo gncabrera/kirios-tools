@@ -11,11 +11,11 @@ ExecStartPre=-/usr/bin/docker rm --volumes --force transmission_NAME
 
 ExecStartPre=/usr/bin/docker create --restart=no  --name=transmission_NAME \
 -v transmission_NAME_config:/config \
--v transmission_NAME_downloads:/downloads \
--v transmission_NAME_watch:/watch \
+-v TRANSMISSION_FOLDER/downloads:/downloads \
+-v TRANSMISSION_FOLDER/watch:/watch \
 -e TZ=Europe/London \
--p 9091:9091 -p 51480:51480 \
--p 51480:51480/udp \
+-p PORT_WEB:9091 -p PORT_CONNECT:PORT_CONNECT \
+-p PORT_CONNECT:PORT_CONNECT/udp \
 linuxserver/transmission
 
 ExecStart=/usr/bin/docker start --attach transmission_NAME

@@ -15,5 +15,3 @@ kirios uninstall service transmission_$NAME
 docker stop --time 30 transmission_$NAME
 docker container rm transmission_$NAME
 docker volume rm "transmission_"$NAME"_config"
-docker volume rm "transmission_"$NAME"_downloads"
-docker volume rm "transmission_"$NAME"_watch"

@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  app:
+    image: horjulf/rutorrent-autodl
+    volumes:
+      - config:/config
+      - /home/rutorrent/downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8170:80
+      - 5000:5000
+      - 51413:51413
+      - 51413:51413/udp
+    environment:
+      - 'TZ=Europe/London'
+volumes:
+  config:
+

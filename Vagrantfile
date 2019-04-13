@@ -76,7 +76,10 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-    chmod +x /home/vagrant/code/kirios.install.vagrant
-    sudo /home/vagrant/code/kirios.install.vagrant
+    sudo apt install dos2unix
+    find /home/vagrant/code -type f -print0 | xargs -0 dos2unix
+    cd /home/vagrant/code
+    chmod +x kirios.install.dev
+    sudo ./kirios.install.dev
    SHELL
 end

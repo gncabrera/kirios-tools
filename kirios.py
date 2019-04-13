@@ -26,6 +26,7 @@ https://kirios.co
 
 VERSION = "Kirios Tools v1.4.8"
 BASE_FOLDER = '/opt/kirios'
+SECRETS_FOLDER = '/opt/kirios-secrets'
 
 UPDATE = 'update'
 INSTALL = 'install'
@@ -106,7 +107,9 @@ def update():
     chmod()
 
 def chmod():
-    runShellCommand("find -L " +  BASE_FOLDER + " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\)' -exec chmod +x {} \;")
+    opts = " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\)' -exec chmod +x {} \;"
+    runShellCommand("find -L " +  BASE_FOLDER + opts)
+    runShellCommand("find -L " +  SECRETS_FOLDER + opts)
 
 
 def get_all_scripts(query):
@@ -116,6 +119,14 @@ def get_all_scripts(query):
     for res in result:
         script = Script(res)
         scripts.append(script)
+
+    
+
+    if os.path.isdir(SECRETS_FOLDER):
+        result = [y for x in os.walk(SECRETS_FOLDER) for y in glob(os.path.join(x[0], query))]
+        for res in result:
+            script = Script(res)
+            scripts.append(script)
 
     return scripts
 

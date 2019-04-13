@@ -3,14 +3,18 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-if [ -z "$1" ]
+if [ "$#" -ne 4 ]
   then
-    echo "Usage: kirios install transmission <name>"
+    echo "Usage: kirios install transmission <name> <transmission_folder> <web_port> <udp_connection_port>"
+    echo "Example: kirios install transmission rarbg \"/home/transmission\" 9091 51480"
     exit 1
 fi
 
 sudo apt-get install rpl -y
 NAME=$1
+TRANSMISSION_FOLDER=$2
+PORT_WEB=$3
+PORT_CONNECT=$4
 
 
 
@@ -18,7 +22,9 @@ docker pull linuxserver/transmission
 cp "/opt/kirios/applications/transmission/transmission.service" "/tmp/transmission_$NAME.service"
 
 rpl NAME $NAME /tmp/transmission_$NAME.service
-
+rpl TRANSMISSION_FOLDER $TRANSMISSION_FOLDER /tmp/transmission_$NAME.service
+rpl PORT_WEB $PORT_WEB /tmp/transmission_$NAME.service
+rpl PORT_CONNECT $PORT_CONNECT /tmp/transmission_$NAME.service
 
 kirios install service "/tmp/transmission_$NAME.service"
 
@@ -26,5 +32,5 @@ kirios tool add-cron "transmission_$NAME \"45 5 * * * kirios backup transmission
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"
-echo "Run into http://localhost:8070"
+echo "Run into http://localhost:$PORT_WEB"
 
