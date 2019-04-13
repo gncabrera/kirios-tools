@@ -1,0 +1,5 @@
+
+
+sudo mkdir /mnt/Media
+sudo chown -R ubuntu:ubuntu /mnt/Media 
+kirios install service "/opt/kirios/applications/rclone/rclone-cache.service"
