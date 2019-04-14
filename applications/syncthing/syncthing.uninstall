@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Syncthing
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service syncthing
+kirios uninstall docker-compose "/opt/kirios/applications/syncthing"

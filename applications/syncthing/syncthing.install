@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs syncthing
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/syncthing
+kirios install service "/opt/kirios/applications/syncthing/syncthing.service"
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:8384"
+echo "Listening port: 22000"
+echo "Protocol discovery: 21027/udp"
+
