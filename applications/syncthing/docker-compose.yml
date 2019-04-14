@@ -6,7 +6,9 @@ services:
     container_name: syncthing
     volumes:
       - config:/config
-      - /mnt/Outbox:/data1
+      - /mnt/data1:/data1
+      - /mnt/data2:/data2
+      - /mnt/data3:/data3
     ports:
       - 8384:8384
       - 22000:22000
