@@ -3,6 +3,11 @@
 # DESCRIPTION: Installs syncthing
 # DEPENDENCIES: docker, rclone
 
+mkdir /mnt/syncthing_data1 /mnt/syncthing_data2 /mnt/syncthing_data3
+chmod -R a+rwX /mnt/syncthing_data1
+chmod -R a+rwX /mnt/syncthing_data2
+chmod -R a+rwX /mnt/syncthing_data3
+
 docker pull linuxserver/syncthing
 kirios install service "/opt/kirios/applications/syncthing/syncthing.service"
 
