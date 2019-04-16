@@ -1,0 +1,10 @@
+[Unit]
+Description=firefly container
+
+[Service]
+Restart=always
+
+ExecStart=/home/ubuntu/.nvm/versions/node/v10.15.3/bin/cloudcmd --port 7098 --one-file-panel --console --terminal
+
+[Install]
+WantedBy=multi-user.target
