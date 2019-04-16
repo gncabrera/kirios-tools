@@ -1,10 +1,14 @@
 [Unit]
-Description=firefly container
+Description=Cloud Commander
 
 [Service]
+TimeoutStartSec=0
 Restart=always
+User=ubuntu
 
-ExecStart=/home/ubuntu/.nvm/versions/node/v10.15.3/bin/cloudcmd --port 7098 --one-file-panel --console --terminal
+WorkingDirectory=/home/ubuntu/cloudcmd
+
+ExecStart=/home/ubuntu/.nvm/versions/node/v10.15.3/bin/node /home/ubuntu/.nvm/versions/node/v10.15.3/bin/cloudcmd --port 7098 --one-file-panel --console --terminal
 
 [Install]
 WantedBy=multi-user.target

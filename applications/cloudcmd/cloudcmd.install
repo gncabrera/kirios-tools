@@ -1,7 +1,7 @@
 
 
 
-
+kirios install service "/opt/kirios/applications/cloudcmd/cloudcmd.service"
 
 
 echo "Now run: "
