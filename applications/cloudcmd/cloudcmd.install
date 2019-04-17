@@ -1,0 +1,3 @@
+
+
+kirios install service "/opt/kirios/applications/cloudcmd/cloudcmd.service"
