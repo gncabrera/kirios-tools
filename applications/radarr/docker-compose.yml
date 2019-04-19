@@ -13,6 +13,8 @@ services:
       - 7878:7878
     environment:
       - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
 volumes:
   config:
   media:
