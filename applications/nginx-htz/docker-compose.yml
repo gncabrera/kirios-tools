@@ -7,6 +7,7 @@ services:
       - /srv/nginx-rproxy/conf:/etc/nginx/conf.d:ro
       - /srv/nginx-rproxy/certs:/etc/nginx/certs:ro
       - /srv/nginx-rproxy/log:/var/log/nginx
+      - /opt/kirios-dashboard:/opt/kirios-dashboard
     ports:
       - 80:80
       - 443:443
