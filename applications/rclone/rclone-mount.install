@@ -1,0 +1,6 @@
+
+
+sudo mkdir -p /mnt/Media
+sudo chmod 775 /mnt/Media
+sudo chown -R ubuntu:ubuntu /mnt/Media 
+kirios install service "/opt/kirios/applications/rclone/rclone-mount.service"

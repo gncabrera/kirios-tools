@@ -1,20 +1,32 @@
 [Unit]
-Description=Mount and cache Google drive to /mnt/Media
-After=syslog.target local-fs.target network.target
+Description=Kirios Media mount
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
-User=root
-ExecStartPre=-/bin/mkdir /mnt/Media
-ExecStart=/usr/bin/rclone mount \
-  --config /opt/kirios/servers/plex/rclone.conf \
-  --allow-other \
-  --cache-info-age 5m \
-  --cache-writes \
-  mediaCache: /mnt/Media
-ExecStop=/bin/fusermount -u -z /mnt/Media
-ExecStop=/bin/rmdir /mnt/Media
-Restart=always
+User=0
+Group=0
+ExecStart=/usr/bin/rclone mount Media: /mnt/Media \
+    --config /opt/kirios-secrets/rclone.conf \
+    --allow-non-empty \
+    --allow-other \
+    --size-only \
+    --uid=1000 \
+    --gid=1000 \
+    --umask 002 \
+    --timeout 1h \
+    --dir-cache-time 2m \
+    --vfs-cache-max-age 72h \
+    --vfs-read-chunk-size 64M \
+    --vfs-read-chunk-size-limit 5G \
+    --drive-chunk-size 128M \
+    --buffer-size 64M
+
+ExecStop=/bin/fusermount -uz /mnt/Media
+TimeoutStopSec=20
+KillMode=process
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
