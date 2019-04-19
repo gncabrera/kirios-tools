@@ -17,4 +17,5 @@ volumes:
   config:
   media:
   downloads:
+  input:
 
