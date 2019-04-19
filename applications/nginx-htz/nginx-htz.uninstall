@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service nginx-htz
+kirios uninstall docker-compose "/opt/kirios/applications/nginx-htz"
+

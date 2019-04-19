@@ -1,0 +1,24 @@
+version: "3.2"
+
+services:
+  rproxy:
+    image: nginx:1.15
+    volumes:
+      - /srv/nginx-rproxy/conf:/etc/nginx/conf.d:ro
+      - /srv/nginx-rproxy/certs:/etc/nginx/certs:ro
+      - /srv/nginx-rproxy/log:/var/log/nginx
+    ports:
+      - 80:80
+      - 443:443
+  sso:
+    image: luzifer/nginx-sso:latest
+    volumes:
+      - /srv/nginx-sso:/data
+    ports:
+      - 172.17.0.1:8082:8082
+volumes:
+  conf:
+  certs:
+  log:
+  data:
+
