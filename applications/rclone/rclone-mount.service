@@ -7,7 +7,7 @@ Wants=network-online.target
 Type=simple
 User=0
 Group=0
-ExecStart=/usr/bin/rclone mount Media: /mnt/Media \
+ExecStart=/usr/bin/rclone mount Media: /mnt/Media_gdrive \
     --config /opt/kirios-secrets/rclone.conf \
     --allow-non-empty \
     --allow-other \
@@ -23,7 +23,7 @@ ExecStart=/usr/bin/rclone mount Media: /mnt/Media \
     --drive-chunk-size 128M \
     --buffer-size 64M
 
-ExecStop=/bin/fusermount -uz /mnt/Media
+ExecStop=/bin/fusermount -uz /mnt/Media_gdrive
 TimeoutStopSec=20
 KillMode=process
 RemainAfterExit=yes
