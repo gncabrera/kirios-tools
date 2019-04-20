@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  sso:
+    image: luzifer/nginx-sso:latest
+    volumes:
+      - /srv/nginx-sso:/data
+    ports:
+      - 8082:8082
+volumes:
+  data:
+
+
