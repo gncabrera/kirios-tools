@@ -3,7 +3,7 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-kirios install service "/opt/kirios/applications/nginx-htz/nginx-htz.service"
+kirios install service "/opt/kirios/applications/nginx-sso/nginx-sso.service"
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"

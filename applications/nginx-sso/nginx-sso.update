@@ -3,5 +3,5 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-kirios service update "/opt/kirios/applications/nginx-htz/nginx-htz.service"
+kirios service update "/opt/kirios/applications/nginx-sso/nginx-sso.service"
 

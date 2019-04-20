@@ -6,7 +6,7 @@ Requires=docker.service
 After=docker.service
 
 [Service]
-WorkingDirectory=/opt/kirios/applications/nginx-htz
+WorkingDirectory=/opt/kirios/applications/nginx-sso
 ExecStart=/usr/local/bin/docker-compose up
 ExecStop=/usr/local/bin/docker-compose down
 TimeoutStartSec=0

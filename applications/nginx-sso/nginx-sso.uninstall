@@ -3,6 +3,6 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-kirios uninstall service nginx-htz
-kirios uninstall docker-compose "/opt/kirios/applications/nginx-htz"
+kirios uninstall service nginx-sso
+kirios uninstall docker-compose "/opt/kirios/applications/nginx-sso"
 
