@@ -7,7 +7,7 @@ Restart=always
 # Pull down the latest image version, remove old container if it exists, and create a transmission image instance.
 
 ExecStartPre=/usr/bin/docker pull linuxserver/transmission
-ExecStartPre=-/usr/bin/docker rm --volumes --force transmission_NAME
+ExecStartPre=-/usr/bin/docker rm --force transmission_NAME
 
 ExecStartPre=/usr/bin/docker create --restart=no  --name=transmission_NAME \
 -v transmission_NAME_config:/config \
