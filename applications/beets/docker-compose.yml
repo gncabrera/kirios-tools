@@ -4,9 +4,9 @@ services:
   app:
     image: linuxserver/beets
     volumes:
-      -v /home/beets/config:/config \
-      -v /home/beets/music:/music \
-      -v /home/beets/downloads:/downloads \
+      -v /home/beets/config:/config
+      -v /home/beets/music:/music
+      -v /home/beets/downloads:/downloads
     ports:
       - 8337:8337
     environment:
