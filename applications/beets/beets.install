@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/beets
+mkdir -p /home/beets
+chown -R ubuntu:ubuntu /home/beets
+kirios install service "/opt/kirios/applications/beets/beets.service"
+
+
