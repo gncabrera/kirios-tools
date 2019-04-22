@@ -46,8 +46,8 @@ services:
   sabnzb:
     image: linuxserver/sabnzbd
     volumes:
-      - /home/sabnzbd/config:/config
-      - /home/sabnzbd/downloads:/nzb_downloads
+      - /home/server/sabnzbd/config:/config
+      - /home/server/downloads:/downloads
     ports:
       - 8080:8080
       - 9090:9090
