@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios install service "/opt/kirios/applications/mediaserver/mediaserver.service"
