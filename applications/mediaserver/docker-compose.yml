@@ -5,8 +5,8 @@ services:
     image: linuxserver/sonarr
     volumes:
       - /mnt/Media:/media
-      - /mnt/Media/server/sonarr/config:/config
-      - /mnt/Media/server/downloads:/downloads
+      - /home/server/sonarr/config:/config
+      - /home/server/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
@@ -18,8 +18,8 @@ services:
     image: linuxserver/radarr
     volumes:
       - /mnt/Media:/media
-      - /mnt/Media/server/radarr/config:/config
-      - /mnt/Media/server/downloads:/downloads
+      - /home/server/radarr/config:/config
+      - /home/server/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 7878:7878
@@ -30,7 +30,7 @@ services:
   hydra:
     image: linuxserver/hydra
     volumes:
-      - /mnt/Media/server/hydra/config:/config
+      - /home/server/hydra/config:/config
     ports:
       - 5075:5075
     environment:
@@ -58,10 +58,10 @@ services:
   syncthing:
     image: linuxserver/syncthing
     volumes:
-      - /mnt/Media/server/syncthing/config:/config
-      - /mnt/Media/server/downloads/syncthing_data1:/data1
-      - /mnt/Media/server/downloads/syncthing_data2:/data2
-      - /mnt/Media/server/downloads/syncthing_data3:/data3
+      - /home/server/syncthing/config:/config
+      - /home/server/downloads/syncthing_data1:/data1
+      - /home/server/downloads/syncthing_data2:/data2
+      - /home/server/downloads/syncthing_data3:/data3
     ports:
       - 8384:8384
       - 22000:22000
@@ -71,6 +71,35 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - UMASK_SET=<022>
+  transmission_ab:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/transmission_animebytes/config:/config
+      - /home/server/transmission_animebytes/watch:/watch
+      - /home/server/downloads/transmission_animebytes:/downloads
+    ports:
+      - 9080:9091
+      - 51480:51480
+      - 51480:51480/udp
+  transmission_misc:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/transmission_misc/config:/config
+      - /home/server/transmission_misc/watch:/watch
+      - /home/server/downloads/transmission_misc:/downloads
+    ports:
+      - 9083:9091
+      - 51483:51483
+      - 51483:51483/udp
+
     
     
 
