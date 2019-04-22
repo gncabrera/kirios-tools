@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/hydra
+mkdir -p /home/hydra
+chown -R ubuntu:ubuntu /home/hydra
+kirios install service "/opt/kirios/applications/hydra/hydra.service"
+
+
