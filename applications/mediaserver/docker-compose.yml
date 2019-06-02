@@ -80,7 +80,7 @@ services:
     volumes:
       - /home/server/transmission_animebytes/config:/config
       - /home/server/transmission_animebytes/watch:/watch
-      - /home/server/downloads/transmission_animebytes:/downloads
+      - /mnt/Media/TorrentData/transmission_ab:/downloads
     ports:
       - 9080:9091
       - 51480:51480
