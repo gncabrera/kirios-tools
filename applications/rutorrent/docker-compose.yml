@@ -6,6 +6,7 @@ services:
     volumes:
       - /home/rutorrent/config:/config
       - /home/rutorrent/downloads:/downloads
+      - /mnt/Media:/mnt/Media
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8170:80
