@@ -99,7 +99,20 @@ services:
       - 9083:9091
       - 51483:51483
       - 51483:51483/udp
-
+  transmission_ptp:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/transmission_ptp/config:/config
+      - /home/server/transmission_ptp/watch:/watch
+      - /home/server/downloads:/downloads
+    ports:
+      - 9084:9091
+      - 51484:51484
+      - 51484:51484/udp
     
     
 
