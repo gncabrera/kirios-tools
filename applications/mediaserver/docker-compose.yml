@@ -27,6 +27,19 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=1000'
       - 'PGID=1000'
+  headphones:
+    image: linuxserver/headphones
+    volumes:
+      - /mnt/Media:/mnt/Media
+      - /home/server/headphones/config:/config
+      - /home/server/downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8181:8181
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
   hydra:
     image: linuxserver/hydra
     volumes:
