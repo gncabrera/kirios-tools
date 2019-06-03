@@ -108,7 +108,7 @@ services:
     volumes:
       - /home/server/transmission_ptp/config:/config
       - /home/server/transmission_ptp/watch:/watch
-      - /home/server/downloads:/downloads
+      - /mnt/Media/TorrentData/transmission_ptp:/downloads
     ports:
       - 9084:9091
       - 51484:51484
