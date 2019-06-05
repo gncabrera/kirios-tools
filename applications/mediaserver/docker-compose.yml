@@ -112,20 +112,16 @@ services:
       - 9083:9091
       - 51483:51483
       - 51483:51483/udp
-  transmission_ptp:
+  deluge_ptp:
     image: linuxserver/transmission
+    network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /home/server/transmission_ptp/config:/config
-      - /home/server/transmission_ptp/watch:/watch
-      - /mnt/Media/TorrentData/transmission_ptp:/downloads
-    ports:
-      - 9084:9091
-      - 51484:51484
-      - 51484:51484/udp
+      - /home/server/deluge_ptp/config:/config
+      - /mnt/Media/TorrentData/deluge_ptp:/downloads
     
     
 
