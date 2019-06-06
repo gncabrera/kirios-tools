@@ -119,7 +119,20 @@ services:
       - /home/server/muximux/config
     ports:
       - 8090:80
-    
+  glances:
+    image: nicolargo/glances
+    network_mode: host
+    pid: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - GLANCES_OPT=-w
+    volumes:
+      - /home/server/glances/conf:/glances/conf
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 61208-61209:61208-61209
     
 
 
