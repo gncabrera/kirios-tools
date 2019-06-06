@@ -108,6 +108,17 @@ services:
     volumes:
       - /home/server/deluge/config:/config
       - /mnt/Media/TorrentData/deluge:/downloads
+  muximux:
+    image: linuxserver/muximux
+    container_name: muximux
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/muximux/config
+    ports:
+      - 8090:80
     
     
 
