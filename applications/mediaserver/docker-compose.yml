@@ -110,7 +110,6 @@ services:
       - /mnt/Media/TorrentData/deluge:/downloads
   muximux:
     image: linuxserver/muximux
-    container_name: muximux
     environment:
       - PUID=1000
       - PGID=1000
