@@ -132,6 +132,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - 61208-61209:61208-61209
+  nginx: 
+    image: nginx:latest
+    volumes:
+      - /home/server/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
     
 
 
