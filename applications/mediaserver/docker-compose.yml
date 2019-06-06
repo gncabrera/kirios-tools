@@ -112,21 +112,16 @@ services:
       - 9083:9091
       - 51483:51483
       - 51483:51483/udp
-  rutorrent:
-    image: horjulf/rutorrent-autodl
+  deluge:
+    image: linuxserver/deluge
+    network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-    ports:
-      - 8170:80
-      - 5000:5000
-      - 51413:51413
-      - 51413:51413/udp
     volumes:
-      - /home/server/rutorrent/config:/config
-      - /mnt/Media/TorrentData/rutorrent:/downloads
-      - /etc/localtime:/etc/localtime:ro
+      - /home/server/deluge/config:/config
+      - /mnt/Media/TorrentData/deluge:/downloads
     
     
 
