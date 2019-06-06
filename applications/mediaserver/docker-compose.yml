@@ -115,7 +115,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /home/server/muximux/config
+      - /home/server/muximux/config:/config
     ports:
       - 8090:80
   glances:
