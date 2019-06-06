@@ -84,20 +84,6 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - UMASK_SET=<022>
-  transmission_ab:
-    image: linuxserver/transmission
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /home/server/transmission_animebytes/config:/config
-      - /home/server/transmission_animebytes/watch:/watch
-      - /mnt/Media/TorrentData/transmission_ab:/downloads
-    ports:
-      - 9080:9091
-      - 51480:51480
-      - 51480:51480/udp
   transmission_misc:
     image: linuxserver/transmission
     environment:
