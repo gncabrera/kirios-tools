@@ -106,6 +106,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
+      - /mnt/Media:/mnt/Media
       - /home/server/deluge/config:/config
       - /mnt/Media/TorrentData/deluge:/downloads
   muximux:
