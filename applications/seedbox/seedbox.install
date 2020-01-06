@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Seedbox
+# DEPENDENCIES: docker, rclone
+
+mkdir -p /home/plex/config
+kirios install service "/opt/kirios/applications/seedbox/seedbox.service"
