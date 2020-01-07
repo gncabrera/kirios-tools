@@ -6,8 +6,8 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - VERSION=docker
     volumes:
       - /home/server/plex/config:/config
@@ -23,13 +23,13 @@ services:
       - 8989:8989
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=1000'
-      - 'PGID=1000'
+      - 'PUID=0'
+      - 'PGID=0'
   transmission_misc:
     image: linuxserver/transmission
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Europe/London
     volumes:
       - /home/server/transmission_misc/config:/config
