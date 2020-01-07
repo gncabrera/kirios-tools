@@ -6,3 +6,5 @@
 mkdir -p /home/plex/config
 kirios install service "/opt/kirios/applications/seedbox/seedbox.service"
 kirios install service "/opt/kirios/applications/seedbox/rclone.service"
+kirios install service "/opt/kirios/applications/seedbox/media.service"
+kirios install service "/opt/kirios/applications/seedbox/gdrive-find.service"
