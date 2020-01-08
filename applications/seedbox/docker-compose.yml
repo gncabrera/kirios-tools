@@ -25,6 +25,19 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=0'
       - 'PGID=0'
+  radarr:
+    image: linuxserver/radarr
+    volumes:
+      - /mnt/media:/mnt/media
+      - /home/server/radarr/config:/config
+      - /home/server/downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7878:7878
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
   transmission_misc:
     image: linuxserver/transmission
     environment:
@@ -39,4 +52,32 @@ services:
       - 9083:9091
       - 51483:51483
       - 51483:51483/udp
+  hydra:
+    image: linuxserver/hydra
+    volumes:
+      - /home/server/hydra/config:/config
+    ports:
+      - 5075:5075
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
+  sabnzb:
+    image: linuxserver/sabnzbd
+    volumes:
+      - /home/server/sabnzbd/config:/config
+      - /home/server/downloads:/downloads
+    ports:
+      - 8080:8080
+      - 9090:9090
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
+  cloudcmd:
+    image: coderaiser/cloudcmd
+    volumes:
+      - /:/mnt/fs
+    ports:
+      - 7890:8000
   
