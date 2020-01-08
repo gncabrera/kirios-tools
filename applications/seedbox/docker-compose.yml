@@ -36,8 +36,8 @@ services:
       - 7878:7878
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=1000'
-      - 'PGID=1000'
+      - 'PUID=0'
+      - 'PGID=0'
   transmission_misc:
     image: linuxserver/transmission
     environment:
