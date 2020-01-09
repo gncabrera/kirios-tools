@@ -15,8 +15,8 @@ services:
       - 51413:51413/udp
     environment:
       - 'TZ=Europe/London'
-      - 'PGID=0'
-      - 'PUID=0'
+      - 'PGID=1000'
+      - 'PUID=1000'
 volumes:
   config:
 
