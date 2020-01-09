@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  app:
+    image: plusminus/jdownloader2-headless
+    volumes:
+      - /home/server/jdownloader:/opt/JDownloader/cfg
+      - /home/server/downloads/jdownloads:/opt/JDownloader/Downloads
+

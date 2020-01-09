@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/jackett
+kirios install service "/opt/kirios/applications/jdownloader/jdownloader.service"
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+
