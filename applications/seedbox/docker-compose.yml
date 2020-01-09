@@ -80,4 +80,17 @@ services:
       - /:/mnt/fs
     ports:
       - 7890:8000
+  sonarr:
+    image: linuxserver/sonarr
+    volumes:
+      - /mnt/media:/mnt/media
+      - /home/server/sonarr_la/config:/config
+      - /home/server/downloads:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8988:8989
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=0'
+      - 'PGID=0'
   
