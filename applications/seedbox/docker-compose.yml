@@ -29,6 +29,8 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=0'
       - 'PGID=0'
+    depends_on:
+      - dockerhost
   radarr:
     image: linuxserver/radarr
     volumes:
@@ -69,6 +71,8 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=0'
       - 'PGID=0'
+    depends_on:
+      - dockerhost
   sabnzb:
     image: linuxserver/sabnzbd
     volumes:
@@ -100,4 +104,6 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=0'
       - 'PGID=0'
+    depends_on:
+      - dockerhost
   
