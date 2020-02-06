@@ -2,9 +2,8 @@
 version: "3.2"
 services:
   dockerhost:
-        image: qoomon/docker-host
-        cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
-        mem_limit: 8M
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
   plex:
     image: linuxserver/plex
     container_name: plex
