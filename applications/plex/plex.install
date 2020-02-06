@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/plex
+kirios install service "/opt/kirios/applications/plex/plex.service"
+

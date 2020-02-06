@@ -4,17 +4,6 @@ services:
   dockerhost:
     image: qoomon/docker-host
     cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
-  plex:
-    image: linuxserver/plex
-    container_name: plex
-    network_mode: host
-    environment:
-      - PUID=0
-      - PGID=0
-      - VERSION=docker
-    volumes:
-      - /home/server/plex/config:/config
-      - /mnt/media:/media
   sonarr:
     image: linuxserver/sonarr
     volumes:

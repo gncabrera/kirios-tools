@@ -1,0 +1,14 @@
+---
+version: "3.2"
+services:
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=0
+      - PGID=0
+      - VERSION=docker
+    volumes:
+      - /home/server/plex/config:/config
+      - /mnt/media:/media
