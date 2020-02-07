@@ -136,4 +136,6 @@ services:
       - /home/server/ombi/config:/config
     ports:
       - 3579:3579
+    depends_on:
+      - dockerhost
   
