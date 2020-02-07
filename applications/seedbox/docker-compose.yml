@@ -126,4 +126,14 @@ services:
       - /:/mnt/fs
     ports:
       - 7890:8000
+  ombi:
+    image: linuxserver/ombi
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/ombi/config:/config
+    ports:
+      - 3579:3579
   
