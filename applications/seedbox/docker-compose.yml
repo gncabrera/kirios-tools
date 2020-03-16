@@ -21,7 +21,7 @@ services:
     depends_on:
       - dockerhost
   sonarr_la:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:preview
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_la/config:/config
@@ -36,7 +36,7 @@ services:
     depends_on:
       - dockerhost
   sonarr_es:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:preview
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_es/config:/config
