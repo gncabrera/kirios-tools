@@ -152,7 +152,7 @@ services:
       - NOSEARCH=yes
       - NOTIFICATIONS=yes
       - BLACKLIST=no
-      - RUNNOW=yes
+      - RUNNOW=no
       - SKIPUPDATE=no
       - APP_BRANCH=master    
     depends_on:
