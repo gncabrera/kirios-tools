@@ -138,4 +138,23 @@ services:
       - 3579:3579
     depends_on:
       - dockerhost
+  traktarr:
+    container_name: traktarr
+    image: eafxx/traktarr
+    volumes:
+      - /home/server/traktarr/config:/config
+    environment:
+      - PUID=<uid>
+      - PGID=<gid>        
+      - TZ=<timezone>
+      - DELAY=2.5        
+      - SORT=rating
+      - NOSEARCH=yes
+      - NOTIFICATIONS=yes
+      - BLACKLIST=yes
+      - RUNNOW=no
+      - SKIPUPDATE=no
+      - APP_BRANCH=master    
+    depends_on:
+      - dockerhost
   
