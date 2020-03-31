@@ -144,9 +144,9 @@ services:
     volumes:
       - /home/server/traktarr/config:/config
     environment:
-      - PUID=<uid>
-      - PGID=<gid>        
-      - TZ=<timezone>
+      - PUID=0
+      - PGID=0        
+      - TZ=Europe/London
       - DELAY=2.5        
       - SORT=rating
       - NOSEARCH=yes
