@@ -151,7 +151,7 @@ services:
       - SORT=rating
       - NOSEARCH=yes
       - NOTIFICATIONS=yes
-      - BLACKLIST=yes
+      - BLACKLIST=no
       - RUNNOW=yes
       - SKIPUPDATE=no
       - APP_BRANCH=master    
