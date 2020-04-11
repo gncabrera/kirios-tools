@@ -69,7 +69,7 @@ services:
     depends_on:
       - dockerhost
   radarr_es:
-    image: linuxserver/radarr
+    image: linuxserver/radarr:preview
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/radarr_es/config:/config
