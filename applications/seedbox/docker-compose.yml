@@ -26,6 +26,7 @@ services:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_la/config:/config
       - /home/server/downloads:/downloads
+      - /home/rutorrent/downloads:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8988:8989
@@ -41,6 +42,7 @@ services:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_es/config:/config
       - /home/server/downloads:/downloads
+      - /home/rutorrent/downloads:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8987:8989
