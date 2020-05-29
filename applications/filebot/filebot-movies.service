@@ -1,0 +1,28 @@
+[Unit]
+Description=Filebot-movies container
+
+[Service]
+Restart=always
+
+# Pull down the latest image version, remove old container if it exists, and create a firefly image instance.
+
+ExecStartPre=/usr/bin/docker pull rednoah/filebot:watcher
+ExecStartPre=-/usr/bin/docker rm --volumes --force filebot_movies
+ExecStartPre=/usr/bin/docker create --restart=no --name=filebot_movies \
+-v /home/server/downloads/complete/movies_es:/input \
+-v /mnt/media/Media:/output \
+-v /home/server/filebot/data:/data \
+-e SETTLE_DOWN_TIME=10 \
+-e "INOTIFYWAIT_OPTS=-e attrib" \
+rednoah/filebot:watcher \
+/input  \
+--output /output \
+--def ut_label=Movie \
+--def subtitles=es,en \
+--def movieFormat="Movies/{n} ({y})/{n} ({y}){' CD'+pi}{'.'+lang}"
+
+ExecStart=/usr/bin/docker start --attach filebot_movies
+ExecStop=/usr/bin/docker stop --time 30 filebot_movies
+
+[Install]
+WantedBy=multi-user.target
