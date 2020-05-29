@@ -3,12 +3,4 @@
 # DESCRIPTION: Installs filebot! 8D
 # DEPENDENCIES: none
 
-add-apt-repository -y ppa:webupd8team/java
-apt-get update
-echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
-apt-get install oracle-java8-installer -y
-apt-get install oracle-java8-set-default -y
-
-# Installing FileBot
-wget -O filebot.deb 'https://app.filebot.net/download.php?type=deb&arch=amd64'
-dpkg -i filebot.deb
+kirios install service "/opt/kirios/applications/filebot/filebot-movies.service"
