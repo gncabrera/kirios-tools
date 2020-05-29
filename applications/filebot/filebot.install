@@ -4,3 +4,4 @@
 # DEPENDENCIES: none
 
 kirios install service "/opt/kirios/applications/filebot/filebot-movies.service"
+kirios install service "/opt/kirios/applications/filebot/filebot-series.service"
