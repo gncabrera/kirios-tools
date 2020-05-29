@@ -12,14 +12,14 @@ ExecStartPre=/usr/bin/docker create --restart=no --name=filebot_series \
 -v /home/server/downloads/complete/tv_es:/input \
 -v /mnt/media/Media:/output \
 -v /home/server/filebot/data:/data \
--e SETTLE_DOWN_TIME=10 \
+-e SETTLE_DOWN_TIME=300 \
 -e "INOTIFYWAIT_OPTS=-e attrib" \
 rednoah/filebot:watcher \
 /input  \
 --output /output \
 --def ut_label=Series \
 --def subtitles=es,en \
---def seriesFormat="TV_FB/{n}/{episode.special ? 'Specials' : 'Season '+s.pad(2)}/{n} - {episode.special ? 'S00E'+special.pad(2) : s00e00} - {t.replaceAll(/[`´‘’ʻ]/, /'/).replaceAll(/[!?.]+$/).replacePart(', Part $1')}{'.'+lang}"
+--def seriesFormat="TV/{n}/{episode.special ? 'Specials' : 'Season '+s.pad(2)}/{n} - {episode.special ? 'S00E'+special.pad(2) : s00e00} - {t.replaceAll(/[`´‘’ʻ]/, /'/).replaceAll(/[!?.]+$/).replacePart(', Part $1')}{'.'+lang}"
 
 ExecStart=/usr/bin/docker start --attach filebot_series
 ExecStop=/usr/bin/docker stop --time 30 filebot_series
