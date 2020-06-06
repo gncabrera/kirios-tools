@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Dashboard
+# DEPENDENCIES: docker
+
+mkdir -p /home/dashboard
+kirios install service "/opt/kirios/applications/dashboard/dashboard.service"
