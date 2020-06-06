@@ -12,7 +12,5 @@ services:
       - 9983:80
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
     depends_on:
       - dockerhost
