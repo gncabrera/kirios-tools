@@ -132,5 +132,15 @@ services:
       - dockerhost
   onlyoffice:
     image: onlyoffice/documentserver
+  organizr:
+    image: organizrtools/organizr-v2
+    volumes:
+      - /home/dashboard/organizr/config:/config
+    ports:
+      - 9983:80
+    environment:
+      - 'TZ=Europe/London'
+    depends_on:
+      - dockerhost
   
   
