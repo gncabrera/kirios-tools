@@ -129,7 +129,7 @@ services:
     environment:
       - 'ONLYOFFICE_URL=http://onlyoffice'
     volumes:
-      - /home/server/filestash/data:/app/data/state
+      - /home/server/filestash/data/state:/app/data/state
     depends_on:
       - dockerhost
   onlyoffice:
