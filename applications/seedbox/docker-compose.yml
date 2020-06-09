@@ -131,7 +131,7 @@ services:
       - 'PUID=0'
       - 'PGID=0'
     volumes:
-      - /home/server/filestash/data/state:/app/data/state
+      - /home/server/filestash/data/state:/app/data/state:z
     depends_on:
       - dockerhost
   onlyoffice:
