@@ -5,9 +5,10 @@ services:
      image: kirios/media-server:jenkins
      container_name: jenkins
      volumes:
-       - jenkins_home:/var/jenkins_home
+       - /var/jenkins_home:/var/jenkins_home
        - /var/run/docker.sock:/var/run/docker.sock
        - /usr/bin/docker:/usr/bin/docker
+       - /mnt/media:/mnt/media
      ports:
        - "8000:8080"
        - "50000:50000"
