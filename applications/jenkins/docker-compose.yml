@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
    jenkins:
-     image: registry.gitlab.com/gncabrera/jenkins:latest
+     image: kirios/media-server:jenkins
      volumes:
        - jenkins_home:/var/jenkins_home
      ports:
