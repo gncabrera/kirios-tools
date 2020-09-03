@@ -16,8 +16,8 @@ services:
       - 8989:8989
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
     depends_on:
       - dockerhost
   sonarr_la:
@@ -32,8 +32,8 @@ services:
       - 8988:8989
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
     depends_on:
       - dockerhost
   sonarr_es:
@@ -48,8 +48,8 @@ services:
       - 8987:8989
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
     depends_on:
       - dockerhost
   radarr:
@@ -64,8 +64,8 @@ services:
       - 7878:7878
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
     depends_on:
       - dockerhost
   radarr_es:
@@ -80,15 +80,15 @@ services:
       - 7877:7878
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
     depends_on:
       - dockerhost
   transmission_misc:
     image: linuxserver/transmission
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
     volumes:
       - /home/server/transmission_misc/config:/config
@@ -108,7 +108,7 @@ services:
       - 9090:9090
     environment:
       - 'TZ=Europe/London'
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
   
   
