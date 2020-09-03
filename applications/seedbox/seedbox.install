@@ -3,11 +3,11 @@
 # DESCRIPTION: Installs Seedbox
 # DEPENDENCIES: docker, rclone
 
-mkdir -p /home/plex/config
+#mkdir -p /home/plex/config
 kirios install service "/opt/kirios/applications/seedbox/seedbox.service"
-kirios install service "/opt/kirios/applications/seedbox/rclone.service"
-kirios install service "/opt/kirios/applications/seedbox/media.service"
-kirios install service "/opt/kirios/applications/seedbox/gdrive-find.service"
+#kirios install service "/opt/kirios/applications/seedbox/rclone.service"
+#kirios install service "/opt/kirios/applications/seedbox/media.service"
+#kirios install service "/opt/kirios/applications/seedbox/gdrive-find.service"
 
-mkdir -p /home/server/rclone/logs
-kirios tool add-cron "rclone-upload \"12 3 * * * /opt/kirios/applications/seedbox/rclone-upload.sh\""
+#mkdir -p /home/server/rclone/logs
+#kirios tool add-cron "rclone-upload \"12 3 * * * /opt/kirios/applications/seedbox/rclone-upload.sh\""
