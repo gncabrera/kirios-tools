@@ -5,7 +5,7 @@ services:
     image: horjulf/rutorrent-autodl
     volumes:
       - /home/rutorrent/config:/config
-      - /mnt/media/downloads/rutorrent:/downloads
+      - /home/rutorrent/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8170:80
