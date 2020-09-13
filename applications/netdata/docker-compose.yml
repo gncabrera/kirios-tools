@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
    app:
-     image: nextcloud:13.0.5
+     image: netdata/netdata
      ports:
        - "19999:19999"
      restart: always
