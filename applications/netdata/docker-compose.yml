@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+   app:
+     image: nextcloud:13.0.5
+     ports:
+       - "19999:19999"
+     restart: always
+     volumes:
+       - netdatalib:/var/lib/netdata
+       - netdatacache:/var/cache/netdata
+       - /etc/passwd:/host/etc/passwd:ro
+       - /etc/group:/host/etc/group:ro
+       - /proc:/host/proc:ro
+       - /sys:/host/sys:ro
+       - /etc/os-release:/host/etc/os-release:ro
+     cap_add:
+       - SYS_PTRACE
+     security_opt:
+       - apparmor:unconfined
+     environment:
+       - PGID=${PGID_DOCKER}
+       - PUID=${PUID}
+       - TZ=${TZ}
+volumes:
+    netdatalib:
+    netdatacache:
