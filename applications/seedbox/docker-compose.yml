@@ -110,5 +110,14 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=1000'
       - 'PGID=1000'
-  
+  organizr:
+    image: organizrtools/organizr-v2
+    volumes:
+      - /home/server/organizr/config:/config
+    ports:
+      - 9983:80
+    environment:
+      - 'TZ=Europe/London'
+    depends_on:
+      - dockerhost  
   
