@@ -115,7 +115,7 @@ services:
     volumes:
       - /home/server/organizr/config:/config
     ports:
-      - 9983:80
+      - 80:80
     environment:
       - 'TZ=Europe/London'
     depends_on:
