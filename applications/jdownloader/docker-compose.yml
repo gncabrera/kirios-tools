@@ -5,10 +5,10 @@ services:
     image: plusminus/jdownloader2-headless
     volumes:
       - /home/server/jdownloader/config:/opt/JDownloader/cfg
-      - /home/server/downloads/jdownloads:/opt/JDownloader/Downloads
+      - /mnt/downloads/jdownloads:/opt/JDownloader/Downloads
     environment:
-      - 'PUID=0'
-      - 'PGID=0'
+      - 'PUID=1000'
+      - 'PGID=1000'
 volumes:
   config:
   jdownloads:
