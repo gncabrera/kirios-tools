@@ -129,7 +129,7 @@ services:
       - 5050:5050
     environment:
       - 'TZ=Europe/London'
-      - 'FG_LOG_LEVEL=info'
+      - 'FG_LOG_LEVEL=debug'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
