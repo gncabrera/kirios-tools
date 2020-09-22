@@ -15,7 +15,7 @@ services:
     ports:
       - 8989:8989
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
@@ -31,7 +31,7 @@ services:
     ports:
       - 8988:8989
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
@@ -47,7 +47,7 @@ services:
     ports:
       - 8987:8989
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
@@ -63,7 +63,7 @@ services:
     ports:
       - 7878:7878
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
@@ -79,7 +79,7 @@ services:
     ports:
       - 7877:7878
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
@@ -89,7 +89,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ=America/Buenos_Aires
     volumes:
       - /home/server/transmission_misc/config:/config
       - /home/server/transmission_misc/watch:/watch
@@ -107,7 +107,7 @@ services:
       - 8080:8080
       - 9090:9090
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
       - 'PGID=1000'
   organizr:
