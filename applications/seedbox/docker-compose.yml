@@ -128,8 +128,8 @@ services:
     ports:
       - 5050:5050
     environment:
-      - 'TZ=Europe/London'
-      - 'FG_LOG_LEVEL=debug'
+      - 'TZ=America/Buenos_Aires'
+      - 'FG_LOG_LEVEL=info'
       - 'PUID=1000'
       - 'PGID=1000'
     depends_on:
