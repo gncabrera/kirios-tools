@@ -10,7 +10,7 @@ services:
       - /mnt/media:/mnt/media
       - /home/server/sonarr/config:/config
       - /home/server/downloads:/downloads
-      - /mnt/downloads/rutorrent:/rutorrent
+      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
@@ -26,26 +26,10 @@ services:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_la/config:/config
       - /home/server/downloads:/downloads
-      - /mnt/downloads/rutorrent:/rutorrent
+      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8988:8989
-    environment:
-      - 'TZ=America/Buenos_Aires'
-      - 'PUID=1000'
-      - 'PGID=1000'
-    depends_on:
-      - dockerhost
-  sonarr_es:
-    image: linuxserver/sonarr:preview
-    volumes:
-      - /mnt/media:/mnt/media
-      - /home/server/sonarr_es/config:/config
-      - /home/server/downloads:/downloads
-      - /mnt/downloads/rutorrent:/rutorrent
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 8987:8989
     environment:
       - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
@@ -58,26 +42,10 @@ services:
       - /mnt/media:/mnt/media
       - /home/server/radarr/config:/config
       - /home/server/downloads:/downloads
-      - /mnt/downloads/rutorrent:/rutorrent
+      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 7878:7878
-    environment:
-      - 'TZ=America/Buenos_Aires'
-      - 'PUID=1000'
-      - 'PGID=1000'
-    depends_on:
-      - dockerhost
-  radarr_es:
-    image: linuxserver/radarr:preview
-    volumes:
-      - /mnt/media:/mnt/media
-      - /home/server/radarr_es/config:/config
-      - /home/server/downloads:/downloads
-      - /mnt/downloads/rutorrent:/rutorrent
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 7877:7878
     environment:
       - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
