@@ -9,8 +9,6 @@ services:
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/sonarr/config:/config
-      - /home/server/downloads:/downloads
-      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
@@ -25,8 +23,6 @@ services:
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/sonarr_la/config:/config
-      - /home/server/downloads:/downloads
-      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8988:8989
@@ -41,8 +37,6 @@ services:
     volumes:
       - /mnt/media:/mnt/media
       - /home/server/radarr/config:/config
-      - /home/server/downloads:/downloads
-      - /mnt/media/downloads/rutorrent:/rutorrent
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 7878:7878
@@ -61,7 +55,7 @@ services:
     volumes:
       - /home/server/transmission_misc/config:/config
       - /home/server/transmission_misc/watch:/watch
-      - /home/server/downloads:/downloads
+      - /mnt/media/downloads/transmission:/mnt/media/downloads/transmission
     ports:
       - 9083:9091
       - 51483:51483
@@ -70,7 +64,7 @@ services:
     image: linuxserver/sabnzbd
     volumes:
       - /home/server/sabnzbd/config:/config
-      - /home/server/downloads:/downloads
+      - /mnt/media/downloads/sabnzbd:/mnt/media/downloads/sabnzbd
     ports:
       - 8080:8080
       - 9090:9090
