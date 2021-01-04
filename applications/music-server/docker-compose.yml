@@ -12,3 +12,16 @@ services:
       - 'TZ=Europe/London'
       - 'PUID=1000'
       - 'PGID=1000'
+  musicbrainz:
+    image: ghcr.io/linuxserver/musicbrainz
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - BRAINZCODE=ceZHDYzZ57zeWwyemKhhOhw3VA9rxgeWZcjVYS2o 
+      - WEBADDRESS=192.168.0.22
+    volumes:
+      - /home/music-server/musicbrainz/config:/config
+      - /home/music-server/musicbrainz/data:/data
+    ports:
+      - 5000:5000
