@@ -13,7 +13,7 @@ services:
       - 'PUID=1000'
       - 'PGID=1000'
   musicbrainz:
-    image: ghcr.io/linuxserver/musicbrainz
+    image: linuxserver/musicbrainz:v-2019-08-08-ls6
     environment:
       - PUID=1000
       - PGID=1000
