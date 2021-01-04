@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull ghcr.io/linuxserver/headphones
+mkdir -p /home/music-server/headphones
+chown -R pepe:pepe /home/music-server
+kirios install service "/opt/kirios/applications/music-server/music-server.service"
+
+
