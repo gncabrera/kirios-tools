@@ -25,3 +25,15 @@ services:
       - /home/music-server/musicbrainz/data:/data
     ports:
       - 5005:5000
+  airsonic:
+    image: ghcr.io/linuxserver/airsonic
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/music-server/airsonic/config:/config
+      - /mnt/media/Music:/music
+      - /home/music-server/airsonic/playlists:/playlists
+    ports:
+      - 4040:4040
