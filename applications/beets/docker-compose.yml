@@ -5,8 +5,7 @@ services:
     image: linuxserver/beets
     volumes:
       - /home/beets/config:/config
-      - /home/beets/music:/music
-      - /home/beets/downloads:/downloads
+      - /mnt/media:/mnt/media
     ports:
       - 8337:8337
     environment:
