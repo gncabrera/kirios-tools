@@ -2,7 +2,7 @@ version: "3.2"
 
 services:
   app:
-    image: kirios/media-server:beets
+    image: linuxserver/beets
     volumes:
       - /home/beets/config:/config
       - /mnt/media:/mnt/media
