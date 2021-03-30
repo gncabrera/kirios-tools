@@ -82,4 +82,17 @@ services:
       - 'TZ=Europe/London'
     depends_on:
       - dockerhost  
-  
+  flexget:
+    image: wiserain/flexget
+    volumes:
+      - /home/server/flexget/data:/data
+      - /home/server/flexget/config:/config
+    ports:
+      - 5050:5050
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'FG_LOG_LEVEL=info'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost    
