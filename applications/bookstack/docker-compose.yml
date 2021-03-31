@@ -29,3 +29,5 @@ services:
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack
       - MYSQL_PASSWORD=123456
+    volumes:
+      - /home/server/bookstack/db:/config
