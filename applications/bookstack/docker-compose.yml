@@ -13,7 +13,7 @@ services:
       - DB_PASS=123456
       - DB_DATABASE=bookstackapp
     volumes:
-      - /path/to/data:/config
+      - /home/server/bookstack/config:/config
     ports:
       - 6875:80
     depends_on:
@@ -29,5 +29,3 @@ services:
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack
       - MYSQL_PASSWORD=123456
-    volumes:
-      - /home/server/bookstack/config:/config
