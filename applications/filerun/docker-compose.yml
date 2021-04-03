@@ -31,4 +31,4 @@ services:
       - "8033:80"
     volumes:
       - /home/server/filerun/html:/var/www/html
-      - /home/server/filerun/user-files:/user-files
+      - /home/pepe:/user-files
