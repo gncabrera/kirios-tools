@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull mariadb:10.1
+docker pull afian/filerun
+kirios install service "/opt/kirios/applications/filerun/filerun.service"
+
+kirios tool add-cron "nextcloud \"45 5 * * * kirios backup nextcloud\""
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:8033"
+
