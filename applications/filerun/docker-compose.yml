@@ -31,4 +31,4 @@ services:
       - "8033:80"
     volumes:
       - /home/server/filerun/html:/var/www/html
-      - /home/pepe:/user-files
+      - /root/lindenbloc-data:/user-files
