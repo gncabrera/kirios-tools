@@ -32,6 +32,20 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost
+  sonarr_4k:
+    image: linuxserver/sonarr:preview
+    volumes:
+      - /mnt/media:/mnt/media
+      - /home/server/sonarr_4k/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8987:8989
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
   radarr:
     image: linuxserver/radarr:preview
     volumes:
@@ -40,6 +54,20 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 7878:7878
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  radarr_4k:
+    image: linuxserver/radarr:preview
+    volumes:
+      - /mnt/media:/mnt/media
+      - /home/server/radarr_4k/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7877:7878
     environment:
       - 'TZ=America/Buenos_Aires'
       - 'PUID=1000'
