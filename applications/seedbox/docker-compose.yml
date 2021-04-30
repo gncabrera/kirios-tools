@@ -124,3 +124,15 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost    
+  shokoserver:
+    image: shokoanime/server
+    volumes:
+      - /home/server/shoko:/home/shoko/.shoko
+      - /mnt:/mnt
+    ports:
+      - 8111:8111
+    environment:
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost   
