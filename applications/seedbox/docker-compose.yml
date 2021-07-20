@@ -101,6 +101,7 @@ services:
     volumes:
       - /home/server/flexget/data:/data
       - /home/server/flexget/config:/config
+      - /home/server/transmission_misc/watch:/transmission_misc_watch
     ports:
       - 5050:5050
     environment:
