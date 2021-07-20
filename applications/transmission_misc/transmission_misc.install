@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs transmission_misc
+# DEPENDENCIES: docker
+
+kirios install service "/opt/kirios/applications/transmission_misc/transmission_misc.service"
+
