@@ -123,3 +123,16 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost   
+  ubuntu-desktop:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    volumes:
+      - /dev/shm:/dev/shm
+      - /mnt:/mnt
+    ports:
+      - 6080:80
+    environment:
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost   
+
