@@ -1,0 +1,95 @@
+---
+version: "3.2"
+services:
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+  fmd2:
+    image: banhcanh/docker-fmd2
+    container_name: fmd2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+      - UMASK=022 #optional
+    ports:
+      - 6081:6080
+    volumes:
+      - /home/server/manga/FMD2/userdata:/app/FMD2/userdata
+      - /home/server/manga/FMD2/modules:/app/FMD2/lua
+      - /home/server/manga/FMD2/data:/app/FMD2/data
+      - /home/server/manga/wine/data:/config/.wine
+      - /mnt/media/Manga/Downloads:/downloads
+  mangatagger:
+    image: banhcanh/manga-tagger
+    container_name: mangatagger
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+      - UMASK=022 #optional
+
+      - MANGA_TAGGER_DEBUG_MODE=false
+
+      - MANGA_TAGGER_IMAGE_COVER=true
+      - MANGA_TAGGER_ADULT_RESULT=false
+
+      - MANGA_TAGGER_DRY_RUN=false
+      - MANGA_TAGGER_DB_INSERT=false
+      - MANGA_TAGGER_RENAME_FILE=false
+      - MANGA_TAGGER_WRITE_COMICINFO=false
+
+      - MANGA_TAGGER_THREADS=8
+      - MANGA_TAGGER_MAX_QUEUE_SIZE=0
+
+      - MANGA_TAGGER_DB_NAME=manga_tagger
+      - MANGA_TAGGER_DB_HOST_ADDRESS=mangatagger-db
+      - MANGA_TAGGER_DB_PORT=27017
+      - MANGA_TAGGER_DB_USERNAME=manga_tagger
+      - MANGA_TAGGER_DB_PASSWORD=Manga4LYFE
+      - MANGA_TAGGER_DB_AUTH_SOURCE=admin
+      - MANGA_TAGGER_DB_SELECTION_TIMEOUT=10000
+
+      - MANGA_TAGGER_LOGGING_LEVEL=info
+      - MANGA_TAGGER_LOGGING_CONSOLE=true
+      - MANGA_TAGGER_LOGGING_FILE=true
+      - MANGA_TAGGER_LOGGING_JSON=false
+      - MANGA_TAGGER_LOGGING_TCP=false
+      - MANGA_TAGGER_LOGGING_JSONTCP=false
+
+    volumes:
+      - /home/server/manga/manga-tagger/config:/config
+      - /mnt/media/Manga/Library:/manga # directory manga-tagger move tagged files to
+      - /mnt/media/Manga/Downloads:/downloads # directory manga-tagger watch
+    depends_on:
+      - mangatagger-db
+
+#    ports:  # Optional, only useful for TCP and Json TCP logging
+#      - 1798:1798
+#      - 1799:1799
+
+  mangatagger-db: # you can use your own mongodb, edit the manga-tagger settings.json accordingly
+    image: mongo
+    container_name: mangatagger-db
+    volumes:
+      - /home/server/manga/manga-tagger/db:/data/db # db persistence
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: manga_tagger
+      MONGO_INITDB_ROOT_PASSWORD: Manga4LYFE
+      MONGO_INITDB_DATABASE: manga_tagger
+    depends_on:
+      - dockerhost
+  komga:
+    image: gotson/komga
+    container_name: komga
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+    ports:
+      - 6090:8080
+    volumes:
+      - /home/server/manga/komga/config:/config
+      - /mnt:/mnt
+    depends_on:
+      - dockerhost
