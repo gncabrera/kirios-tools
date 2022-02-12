@@ -10,7 +10,7 @@ ExecStartPre=/usr/bin/docker pull rednoah/filebot:watcher
 ExecStartPre=-/usr/bin/docker rm --volumes --force filebot_movies
 ExecStartPre=/usr/bin/docker create --restart=no --name=filebot_movies \
 -v /home/server/downloads/complete/movies_es:/input \
--v /mnt/media/Media:/output \
+-v /mnt/storage/Media:/output \
 -v /home/server/filebot/data:/data \
 -e SETTLE_DOWN_TIME=300 \
 -e "INOTIFYWAIT_OPTS=-e attrib" \

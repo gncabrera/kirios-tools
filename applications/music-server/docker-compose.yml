@@ -5,7 +5,7 @@ services:
     image: ghcr.io/linuxserver/headphones
     volumes:
       - /home/music-server/headphones/config:/config
-      - /mnt/media:/mnt/media
+      - /mnt/storage:/mnt/storage
     ports:
       - 8181:8181
     environment:
@@ -33,7 +33,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /home/music-server/airsonic/config:/config
-      - /mnt/media/Music:/music
+      - /mnt/storage/Music:/music
       - /home/music-server/airsonic/playlists:/playlists
     ports:
       - 4040:4040

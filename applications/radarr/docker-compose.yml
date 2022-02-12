@@ -5,7 +5,7 @@ services:
     image: linuxserver/radarr
     volumes:
       - config:/config
-      - /mnt/Media:/media
+      - /mnt/storage:/media
       - /home/transmission/misc/downloads:/downloads
       - /home/sabnzbd/downloads:/nzb_downloads
       - /mnt:/input

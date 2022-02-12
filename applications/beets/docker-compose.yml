@@ -5,7 +5,7 @@ services:
     image: linuxserver/beets
     volumes:
       - /home/beets/config:/config
-      - /mnt/media:/mnt/media
+      - /mnt/storage:/mnt/storage
     ports:
       - 8337:8337
     environment:
