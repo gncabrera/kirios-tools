@@ -11,4 +11,4 @@ services:
       - VERSION=docker
     volumes:
       - /home/server/plex/config:/config
-      - /mnt/storage:/media
+      - /mnt/data:/media

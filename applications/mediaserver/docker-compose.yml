@@ -4,7 +4,7 @@ services:
   sonarr:
     image: linuxserver/sonarr
     volumes:
-      - /mnt/storage:/mnt/storage
+      - /mnt/data:/mnt/data
       - /home/server/sonarr/config:/config
       - /home/server/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
@@ -17,7 +17,7 @@ services:
   radarr:
     image: linuxserver/radarr
     volumes:
-      - /mnt/storage:/mnt/storage
+      - /mnt/data:/mnt/data
       - /home/server/radarr/config:/config
       - /home/server/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
@@ -30,7 +30,7 @@ services:
   headphones:
     image: linuxserver/headphones
     volumes:
-      - /mnt/storage:/mnt/storage
+      - /mnt/data:/mnt/data
       - /home/server/headphones/config:/config
       - /home/server/downloads:/downloads
       - /etc/localtime:/etc/localtime:ro
@@ -106,9 +106,9 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /mnt/storage:/mnt/storage
+      - /mnt/data:/mnt/data
       - /home/server/deluge/config:/config
-      - /mnt/storage/TorrentData/deluge:/downloads
+      - /mnt/data/TorrentData/deluge:/downloads
   muximux:
     image: linuxserver/muximux
     environment:

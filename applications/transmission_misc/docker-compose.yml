@@ -10,7 +10,7 @@ services:
     volumes:
       - /home/server/transmission_misc/config:/config
       - /home/server/transmission_misc/watch:/watch
-      - /mnt/storage/downloads/transmission:/mnt/storage/downloads/transmission
+      - /mnt/data/downloads/transmission:/mnt/data/downloads/transmission
     ports:
       - 9083:9091
       - 51483:51483

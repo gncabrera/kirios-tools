@@ -7,7 +7,7 @@ RequiresMountsFor=/mnt/gdrive
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/mergerfs /mnt/local:/mnt/gdrive /mnt/storage -o rw,async_read=false,use_ino,allow_other,func.getattr=newest,category.action=all,category.create=ff,cache.files=partial,dropcacheonclose=true
+ExecStart=/usr/bin/mergerfs /mnt/local:/mnt/gdrive /mnt/data -o rw,async_read=false,use_ino,allow_other,func.getattr=newest,category.action=all,category.create=ff,cache.files=partial,dropcacheonclose=true
 KillMode=process
 Restart=on-failure
 

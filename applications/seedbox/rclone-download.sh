@@ -7,4 +7,4 @@ export RCLONE_CONFIG
 if [[ "`pidof -x $(basename $0) -o %PPID`" ]]; then exit; fi
 
 # Move older local files to the cloud
-/usr/bin/rclone copy Data: /mnt/storage --log-file /var/log/rclone/download.log -v --fast-list --max-transfer 200G
+/usr/bin/rclone copy Data: /mnt/data --log-file /var/log/rclone/download.log -v --fast-list --max-transfer 200G

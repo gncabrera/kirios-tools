@@ -19,7 +19,7 @@ services:
       - /home/server/manga/FMD2/modules:/app/FMD2/lua
       - /home/server/manga/FMD2/data:/app/FMD2/data
       - /home/server/manga/wine/data:/config/.wine
-      - /mnt/storage/Manga/Downloads:/downloads
+      - /mnt/data/Manga/Downloads:/downloads
   mangatagger:
     image: banhcanh/manga-tagger
     container_name: mangatagger
@@ -59,8 +59,8 @@ services:
 
     volumes:
       - /home/server/manga/manga-tagger/config:/config
-      - /mnt/storage/Manga/Library:/manga # directory manga-tagger move tagged files to
-      - /mnt/storage/Manga/Downloads:/downloads # directory manga-tagger watch
+      - /mnt/data/Manga/Library:/manga # directory manga-tagger move tagged files to
+      - /mnt/data/Manga/Downloads:/downloads # directory manga-tagger watch
     depends_on:
       - mangatagger-db
 
