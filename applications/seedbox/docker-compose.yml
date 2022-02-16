@@ -74,6 +74,20 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost
+  radarr_es:
+    image: linuxserver/radarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/radarr_es/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7876:7878
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
   sabnzb:
     image: linuxserver/sabnzbd
     volumes:
