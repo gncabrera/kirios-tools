@@ -105,7 +105,7 @@ services:
     volumes:
       - /home/server/organizr/config:/config
     ports:
-      - 80:80
+      - 4000:80
     environment:
       - 'TZ=Europe/London'
     depends_on:
@@ -149,4 +149,13 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost   
-
+  dashy:
+    image: lissy93/dashy
+    volumes:
+      - /home/server/dashy/public:/app/public
+    ports:
+      - 80:80
+    environment:
+      - 'TZ=Europe/London'
+    depends_on:
+      - dockerhost  
