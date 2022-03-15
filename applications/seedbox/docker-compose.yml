@@ -137,7 +137,7 @@ services:
       - 'PGID=1000'
     depends_on:
       - dockerhost   
-  ubuntu-desktop:
+  youtube-dlp-desktop:
     image: dorowu/ubuntu-desktop-lxde-vnc
     volumes:
       - /dev/shm:/dev/shm
