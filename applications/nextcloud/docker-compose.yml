@@ -7,15 +7,13 @@ services:
      volumes:
        - db_data:/var/lib/mysql
      environment:
-       MYSQL_DATABASE:nextcloud
-       MYSQL_ROOT_PASSWORD:somenextcloud
-       MYSQL_DATABASE:nextcloud
-       MYSQL_USER:nextcloud
-       MYSQL_PASSWORD:nextcloud
+       MYSQL_DATABASE: nextcloud
+       MYSQL_ROOT_PASSWORD: somenextcloud
+       MYSQL_DATABASE: nextcloud
+       MYSQL_USER: nextcloud
+       MYSQL_PASSWORD: nextcloud
 
    app:
-     depends_on:
-       - db
      links:
        - db
      image: nextcloud:23
@@ -24,10 +22,10 @@ services:
      volumes:
        - nextcloud:/var/www/html
      environment:
-       MYSQL_DATABASE:nextcloud
-       MYSQL_USER:nextcloud
-       MYSQL_PASSWORD:nextcloud
-       MYSQL_HOST:db
+       MYSQL_DATABASE: nextcloud
+       MYSQL_USER: nextcloud
+       MYSQL_PASSWORD: nextcloud
+       MYSQL_HOST: db
 volumes:
     db_data:
     nextcloud:
