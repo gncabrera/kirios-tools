@@ -159,3 +159,16 @@ services:
       - 'TZ=Europe/London'
     depends_on:
       - dockerhost  
+  tubesync:
+    image: ghcr.io/meeb/tubesync:latest
+    volumes:
+      - /mnt/data/Media/YouTube:/downloads
+      - /home/server/tubesync/config:/config
+    ports:
+      - 4848:4848
+    environment:
+      - 'TZ=Europe/London'
+      - PUID=1000
+      - PGID=1000
+    depends_on:
+      - dockerhost  
