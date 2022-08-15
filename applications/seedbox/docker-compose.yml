@@ -172,3 +172,18 @@ services:
       - PGID=1000
     depends_on:
       - dockerhost  
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/calibre/config:/config
+      - /mnt:/mnt
+    ports:
+      - 6020:8080
+      - 6021:8081
+ 
+      
