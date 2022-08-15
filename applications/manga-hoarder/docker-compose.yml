@@ -6,7 +6,6 @@ services:
     cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
   fmd2:
     image: banhcanh/docker-fmd2
-    container_name: fmd2
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,7 +21,6 @@ services:
       - /mnt/data/Manga/Downloads:/downloads
   mangatagger:
     image: banhcanh/manga-tagger
-    container_name: mangatagger
     environment:
       - PUID=1000
       - PGID=1000
@@ -70,7 +68,6 @@ services:
 
   mangatagger-db: # you can use your own mongodb, edit the manga-tagger settings.json accordingly
     image: mongo
-    container_name: mangatagger-db
     volumes:
       - /home/server/manga/manga-tagger/db:/data/db # db persistence
     environment:
@@ -81,7 +78,6 @@ services:
       - dockerhost
   komga:
     image: gotson/komga
-    container_name: komga
     environment:
       - PUID=1000
       - PGID=1000
