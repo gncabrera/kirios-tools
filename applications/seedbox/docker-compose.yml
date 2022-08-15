@@ -174,7 +174,6 @@ services:
       - dockerhost  
   calibre:
     image: lscr.io/linuxserver/calibre:latest
-    container_name: calibre
     environment:
       - PUID=1000
       - PGID=1000
