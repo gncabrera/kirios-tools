@@ -3,7 +3,7 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-docker pull linuxserver/jackett
+docker pull jlesage/jdownloader-2
 kirios install service "/opt/kirios/applications/jdownloader/jdownloader.service"
 
 echo "Chicken chicken chicken"
