@@ -107,7 +107,7 @@ services:
     ports:
       - 4000:80
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
     depends_on:
       - dockerhost  
   flexget:
@@ -156,7 +156,7 @@ services:
     ports:
       - 80:80
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
     depends_on:
       - dockerhost  
   tubesync:
@@ -167,7 +167,7 @@ services:
     ports:
       - 4848:4848
     environment:
-      - 'TZ=Europe/London'
+      - 'TZ=America/Buenos_Aires'
       - PUID=1000
       - PGID=1000
     depends_on:
@@ -199,4 +199,19 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - UMASK_SET=<022> 
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Buenos_Aires
+      - JELLYFIN_PublishedServerUrl=192.168.0.153
+    volumes:
+      - /home/server/jellyfin/config:/config
+      - /mnt:/mnt
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
       
