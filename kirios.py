@@ -42,10 +42,10 @@ CHMOD = 'chmod'
 SECRETS = 'secrets'
 VOLUMERIZE = 'volumerize'
 LOGO = 'logo'
-
+SERVER = 'server'
 
 parser = argparse.ArgumentParser(description='Kirios Toolset Script (https://kirios.co)')
-parser.add_argument('action', choices=[VOLUMERIZE, UPDATE, LS, INSTALL, UNINSTALL, RUN, RESTORE, CHECK_INSTALL, TOOL, NGINX, BACKUP, CHMOD, SECRETS, LOGO], help = 'action to perform on the target. It relates to a previously defined script. For example for the script docker.install the action is "install"')
+parser.add_argument('action', choices=[VOLUMERIZE, UPDATE, LS, INSTALL, UNINSTALL, RUN, RESTORE, CHECK_INSTALL, TOOL, NGINX, BACKUP, CHMOD, SECRETS, LOGO, SERVER], help = 'action to perform on the target. It relates to a previously defined script. For example for the script docker.install the action is "install"')
 parser.add_argument('target', nargs='?', default = '', help = 'target of the specified action. This defines which "action" script will be executed. For example for the script docker.install the target is "docker"')
 parser.add_argument('params', nargs='?', default = '', help = 'parameters to append to the action script')
 parser.add_argument('--version', action='version', version = VERSION)
@@ -108,7 +108,7 @@ def update():
     chmod()
 
 def chmod():
-    opts = " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\)' -exec chmod +x {} \;"
+    opts = " -type f -regex '.*\.\(cron\|install\|volumerize\|sh\|uninstall\|restore\|tool\|check-install\|py\|secrets\|nginx\|backup\|server\)' -exec chmod +x {} \;"
     runShellCommand("find -L " +  BASE_FOLDER + opts)
     runShellCommand("find -L " +  SECRETS_FOLDER + opts)
 

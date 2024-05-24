@@ -1,0 +1,4 @@
+#!/bin/bash
+
+kirios backup docker "/home/portainer/vikunja/ portal vikunja"
+curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/c195bd18-d4dc-4d73-92c2-0c3ca36c547e
