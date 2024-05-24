@@ -41,10 +41,11 @@ BACKUP = 'backup'
 CHMOD = 'chmod'
 SECRETS = 'secrets'
 VOLUMERIZE = 'volumerize'
+LOGO = 'logo'
 
 
 parser = argparse.ArgumentParser(description='Kirios Toolset Script (https://kirios.co)')
-parser.add_argument('action', choices=[VOLUMERIZE, UPDATE, LS, INSTALL, UNINSTALL, RUN, RESTORE, CHECK_INSTALL, TOOL, NGINX, BACKUP, CHMOD, SECRETS], help = 'action to perform on the target. It relates to a previously defined script. For example for the script docker.install the action is "install"')
+parser.add_argument('action', choices=[VOLUMERIZE, UPDATE, LS, INSTALL, UNINSTALL, RUN, RESTORE, CHECK_INSTALL, TOOL, NGINX, BACKUP, CHMOD, SECRETS, LOGO], help = 'action to perform on the target. It relates to a previously defined script. For example for the script docker.install the action is "install"')
 parser.add_argument('target', nargs='?', default = '', help = 'target of the specified action. This defines which "action" script will be executed. For example for the script docker.install the target is "docker"')
 parser.add_argument('params', nargs='?', default = '', help = 'parameters to append to the action script')
 parser.add_argument('--version', action='version', version = VERSION)
@@ -93,6 +94,9 @@ def runShellCommandStrict(command):
 def runShellCommand(command):
     log(command)
     return subprocess.call(command, shell = True)
+
+def logo():    
+    print(KIRIOS_LOGO)
 
 def update():    
     runShellCommand('git config --global credential.helper "cache --timeout=36000000"')
@@ -161,8 +165,6 @@ def check_target():
         print('[target] not specified')
         exit(-1)
 
-#print(KIRIOS_LOGO)
-
 if (args.action == UPDATE):
     update()
     exit(0)
@@ -184,6 +186,9 @@ if (args.action == INSTALL):
         run_script(INSTALL, args.target, args.params)
     exit(0)
 
+if (args.action == LOGO):
+    logo()
+    exit(0)
 
 # By default tries to run the target.action [args.params]
 check_target()
