@@ -1,12 +1,12 @@
 #!/bin/bash
-TARGET_DIR=$1
+SOURCE_DIR=$1
 SERVER_NAME=$2
 APP_NAME=$3
-TIMESTAMP=$4
+TIMESTAMP=$(date "+%Y%m%d")
 
 if [[ $# -lt 3 ]] ; then
-    echo 'Must specify target dir, server name and, name and version. Usage: backup docker /home/server/my_app server_name my_app 20243112'
+    echo 'Must specify source dir, server name and app name. Usage: backup docker /home/server/my_app server_name my_app'
     exit 1
 fi
 
-rclone copy gncDrive:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ $TARGET_DIR/ -P --config "/opt/kirios-secrets/rclone.conf"
+rclone copy $SOURCE_DIR gncDrive:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ -P --config "/opt/kirios-secrets/rclone.conf"
