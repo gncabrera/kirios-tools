@@ -99,11 +99,11 @@ def logo():
     print(KIRIOS_LOGO)
 
 def update():    
-    print('Checking new version...\n')
+    print('Checking new version...')
     runShellCommand('git config --global credential.helper "cache --timeout=36000000"')
     runShellCommand('cd ' + BASE_FOLDER + ' && git checkout -- . && git pull')
     runShellCommand('chmod -R a+rw ' + BASE_FOLDER)
-    print('Looking for new secrets...\n')
+    print('Looking for new secrets...')
     runShellCommand('kirios secrets update')
     chmod()
 
