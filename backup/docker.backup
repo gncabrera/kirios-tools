@@ -1,0 +1,16 @@
+#!/bin/bash
+SOURCE_DIR=$1
+SERVER_NAME=$2
+DOCKER_STACK=$3
+
+if [[ $# -lt 3 ]] ; then
+    echo 'Must specify source dir, server name and docker stack. Usage: backup docker /home/server/my_app server_name docker_stack'
+    exit 1
+fi
+
+TIMESTAMP=$(date "+%Y%m%d")
+sudo docker compose -p $DOCKER_STACK stop 
+
+kirios backup folder $SOURCE_DIR $SERVER_NAME $DOCKER_STACK
+
+sudo docker compose -p $DOCKER_STACK start
