@@ -54,6 +54,17 @@ parser.add_argument('--verbose', '-v', action='store_true')
 
 args = parser.parse_args()
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 class Script:
     def __init__(self, file):
         self.description = "No description"
@@ -150,7 +161,7 @@ def run_script(extension, script, parameters):
         return
     script = files[0]
     executable = script.path + " " + parameters
-    print('Executing ' + executable)
+    print(f"Executing {bcolors.OKGREEN}{executable}{bcolors.ENDC}")
     runShellCommand(executable)
     
 
@@ -160,7 +171,7 @@ def is_installed(script):
         print('Cannot check installation. Missing ' + script + '.' + CHECK_INSTALL)
         return False
     script = files[0]
-    print('Executing ' + script.path + '...')
+    print(f"Executing {bcolors.OKGREEN}{script.path}{bcolors.ENDC}")
     return runShellCommand(script.path) == 0
 
 def check_target():
