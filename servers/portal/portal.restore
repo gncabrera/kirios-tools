@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BASE_DIR=/home/gnicolascabrera/restore
+sudo mkdir $BASE_DIR
+sudo chown -R $(id -u):$(id -g) $BASE_DIR
+kirios restore folder "$BASE_DIR/vikunja portal vikunja 20240524"
+kirios restore folder "$BASE_DIR/healthchecks portal healthchecks 20240524"
