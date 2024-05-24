@@ -157,7 +157,7 @@ def ls(extension):
 def run_script(extension, script, parameters):
     files = get_all_scripts(script + "." + extension)
     if not files:
-        print('There is no ' + extension + ' script for ' + script + '\n')
+        print(f"{bcolors.FAIL}There is no {extension} script for {script}{bcolors.ENDC}")
         return
     script = files[0]
     executable = script.path + " " + parameters
