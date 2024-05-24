@@ -9,13 +9,14 @@ services:
       - /mnt/syncthing_data1:/data1
       - /mnt/syncthing_data2:/data2
       - /mnt/syncthing_data3:/data3
+      - /root/lindenbloc-data:/lindenbloc
     ports:
       - 8384:8384
       - 22000:22000
       - 21027:21027/udp
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Europe/London
       - UMASK_SET=<022>
 volumes:

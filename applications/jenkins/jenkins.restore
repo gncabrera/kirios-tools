@@ -1,6 +1,0 @@
-#!/bin/bash
-
-
-kirios uninstall jenkins
-volumerize restore jenkins jenkins_jenkins_home 
-kirios install jenkins

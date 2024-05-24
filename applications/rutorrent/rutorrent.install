@@ -6,7 +6,7 @@
 docker pull linuxserver/rutorrent
 kirios install service "/opt/kirios/applications/rutorrent/rutorrent.service"
 
-kirios tool add-cron "rutorrent \"38 3 * * * kirios backup rutorrent\""
+#kirios tool add-cron "rutorrent \"38 3 * * * kirios backup rutorrent\""
 
 echo "Chicken chicken chicken"
 echo "-----------------------------"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios service update "/opt/kirios/applications/nginx-sso/nginx-sso.service"
+

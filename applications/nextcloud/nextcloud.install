@@ -3,8 +3,8 @@
 # DESCRIPTION: Installs Nextloud
 # DEPENDENCIES: docker, rclone
 
-docker pull nextcloud:13.0.5
-docker pull mysql:5.5
+docker pull nextcloud:23
+docker pull mariadb:10.7
 kirios install service "/opt/kirios/applications/nextcloud/nextcloud.service"
 
 kirios tool add-cron "nextcloud \"45 5 * * * kirios backup nextcloud\""

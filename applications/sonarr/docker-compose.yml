@@ -5,15 +5,20 @@ services:
     image: linuxserver/sonarr
     volumes:
       - config:/config
-      - /mnt/Media:/media
+      - /mnt/data:/media
       - /home/transmission/misc/downloads:/downloads
+      - /home/sabnzbd/downloads:/nzb_downloads
+      - /mnt:/input
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
     environment:
       - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
 volumes:
   config:
   media:
   downloads:
+  input:
 

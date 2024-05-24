@@ -1,0 +1,217 @@
+---
+version: "3.2"
+services:
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+  sonarr:
+    image: linuxserver/sonarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/sonarr/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8989:8989
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  sonarr_la:
+    image: linuxserver/sonarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/sonarr_la/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8988:8989
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  sonarr_4k:
+    image: linuxserver/sonarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/sonarr_4k/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8987:8989
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  radarr:
+    image: linuxserver/radarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/radarr/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7878:7878
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  radarr_4k:
+    image: linuxserver/radarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/radarr_4k/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7877:7878
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  radarr_es:
+    image: linuxserver/radarr:preview
+    volumes:
+      - /mnt/data:/mnt/data
+      - /home/server/radarr_es/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7876:7878
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost
+  sabnzb:
+    image: linuxserver/sabnzbd
+    volumes:
+      - /home/server/sabnzbd/config:/config
+      - /mnt/data/downloads/sabnzbd:/mnt/data/downloads/sabnzbd
+    ports:
+      - 8080:8080
+      - 9090:9090
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'PUID=1000'
+      - 'PGID=1000'
+  organizr:
+    image: organizr/organizr
+    volumes:
+      - /home/server/organizr/config:/config
+    ports:
+      - 4000:80
+    environment:
+      - 'TZ=America/Buenos_Aires'
+    depends_on:
+      - dockerhost  
+  flexget:
+    image: wiserain/flexget
+    volumes:
+      - /home/server/flexget/data:/data
+      - /home/server/flexget/config:/config
+      - /home/server/transmission_misc/watch:/transmission_misc_watch
+    ports:
+      - 5050:5050
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - 'FG_LOG_LEVEL=info'
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost    
+  shokoserver:
+    image: shokoanime/server
+    volumes:
+      - /home/server/shoko:/home/shoko/.shoko
+      - /mnt:/mnt
+    ports:
+      - 8111:8111
+    environment:
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost   
+  youtube-dlp-desktop:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    volumes:
+      - /dev/shm:/dev/shm
+      - /mnt:/mnt
+    ports:
+      - 6080:80
+    environment:
+      - 'PUID=1000'
+      - 'PGID=1000'
+    depends_on:
+      - dockerhost   
+  dashy:
+    image: lissy93/dashy
+    volumes:
+      - /home/server/dashy/public:/app/public
+    ports:
+      - 80:80
+    environment:
+      - 'TZ=America/Buenos_Aires'
+    depends_on:
+      - dockerhost  
+  tubesync:
+    image: ghcr.io/meeb/tubesync:latest
+    volumes:
+      - /mnt/data/Media/YouTube:/downloads
+      - /home/server/tubesync/config:/config
+    ports:
+      - 4848:4848
+    environment:
+      - 'TZ=America/Buenos_Aires'
+      - PUID=1000
+      - PGID=1000
+    depends_on:
+      - dockerhost  
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/server/calibre/config:/config
+      - /mnt:/mnt
+    ports:
+      - 6020:8080
+      - 6021:8081
+  syncthing:
+    image: linuxserver/syncthing
+    container_name: syncthing
+    volumes:
+      - /home/server/syncthing/config:/config
+      - /mnt:/mnt
+    ports:
+      - 8384:8384
+      - 22000:22000
+      - 21027:21027/udp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=<022> 
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Buenos_Aires
+      - JELLYFIN_PublishedServerUrl=192.168.0.153
+    volumes:
+      - /home/server/jellyfin/config:/config
+      - /mnt:/mnt
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
+      

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull linuxserver/sabnzbd
+mkdir -p /home/sabnzbd
+chown -R ubuntu:ubuntu /home/sabnzbd
+kirios install service "/opt/kirios/applications/sabnzbd/sabnzbd.service"
+
+

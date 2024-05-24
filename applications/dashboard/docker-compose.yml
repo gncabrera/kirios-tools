@@ -1,0 +1,16 @@
+---
+version: "3.2"
+services:
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+  organizr:
+    image: organizrtools/organizr-v2
+    volumes:
+      - /home/dashboard/organizr/config:/config
+    ports:
+      - 9983:80
+    environment:
+      - 'TZ=Europe/London'
+    depends_on:
+      - dockerhost

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs Nextloud
+# DEPENDENCIES: docker, rclone
+
+docker pull mariadb:10.1
+docker pull afian/filerun
+kirios install service "/opt/kirios/applications/filerun/filerun.service"
+
+
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:8033"
+echo "user: superuser"
+echo "pass: superuser"
+

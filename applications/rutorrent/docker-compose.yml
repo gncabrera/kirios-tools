@@ -4,8 +4,8 @@ services:
   app:
     image: horjulf/rutorrent-autodl
     volumes:
-      - config:/config
-      - /home/rutorrent/downloads:/downloads
+      - /home/rutorrent/config:/config
+      - /mnt/data/downloads/rutorrent:/downloads
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 8170:80
@@ -14,6 +14,8 @@ services:
       - 51413:51413/udp
     environment:
       - 'TZ=Europe/London'
+      - 'PGID=1000'
+      - 'PUID=1000'
 volumes:
   config:
 

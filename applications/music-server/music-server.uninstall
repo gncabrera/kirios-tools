@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DESCRIPTION: Uninstalls Nextloud
+# DEPENDENCIES: docker, rclone
+
+kirios uninstall service music-server
+kirios uninstall docker-compose "/opt/kirios/applications/music-server"

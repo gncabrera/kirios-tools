@@ -1,0 +1,17 @@
+---
+version: "3.2"
+services:
+  transmission_misc:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Buenos_Aires
+    volumes:
+      - /home/server/transmission_misc/config:/config
+      - /home/server/transmission_misc/watch:/watch
+      - /mnt/data/downloads/transmission:/mnt/data/downloads/transmission
+    ports:
+      - 9083:9091
+      - 51483:51483
+      - 51483:51483/udp

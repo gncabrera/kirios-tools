@@ -1,0 +1,18 @@
+version: "3.2"
+
+services:
+  app:
+    image: linuxserver/beets
+    volumes:
+      - /home/beets/config:/config
+      - /mnt/data:/mnt/data
+    ports:
+      - 8337:8337
+    environment:
+      - 'TZ=Europe/London'
+      - 'PUID=1000'
+      - 'PGID=1000'
+volumes:
+  config:
+  music:
+  downloads:

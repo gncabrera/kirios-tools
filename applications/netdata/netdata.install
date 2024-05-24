@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# DESCRIPTION: Installs netdata
+
+docker pull netdata/netdata
+kirios install service "/opt/kirios/applications/netdata/netdata.service"
+
+echo "Chicken chicken chicken"
+echo "-----------------------------"
+echo "Run into http://localhost:19999"
+

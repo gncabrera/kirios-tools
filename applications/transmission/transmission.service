@@ -7,13 +7,15 @@ Restart=always
 # Pull down the latest image version, remove old container if it exists, and create a transmission image instance.
 
 ExecStartPre=/usr/bin/docker pull linuxserver/transmission
-ExecStartPre=-/usr/bin/docker rm --volumes --force transmission_NAME
+ExecStartPre=-/usr/bin/docker rm --force transmission_NAME
 
 ExecStartPre=/usr/bin/docker create --restart=no  --name=transmission_NAME \
--v transmission_NAME_config:/config \
+-v TRANSMISSION_FOLDER/config:/config \
 -v TRANSMISSION_FOLDER/downloads:/downloads \
 -v TRANSMISSION_FOLDER/watch:/watch \
 -e TZ=Europe/London \
+-e PUID=1000 \
+-e PGID=1000 \
 -p PORT_WEB:9091 -p PORT_CONNECT:PORT_CONNECT \
 -p PORT_CONNECT:PORT_CONNECT/udp \
 linuxserver/transmission

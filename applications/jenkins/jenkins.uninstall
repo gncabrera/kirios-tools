@@ -1,7 +1,4 @@
 #!/bin/bash
 
-# DESCRIPTION: Uninstalls Nextloud
-# DEPENDENCIES: docker, rclone
-
 kirios uninstall service jenkins
 kirios uninstall docker-compose "/opt/kirios/applications/jenkins"
