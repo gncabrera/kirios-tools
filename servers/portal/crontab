@@ -1,0 +1,2 @@
+0 4 * * * kirios server portal-backup-vikunja
+15 4 * * 0 kirios server portal-backup-portainer

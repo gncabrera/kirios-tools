@@ -1,0 +1,7 @@
+#!/bin/bash
+TIMESTAMP=$(date "+%Y%m%d")
+mkdir -p /tmp/portainer
+sudo docker run -it --rm --name portainer-backup --volume /tmp/portainer:/backup --env PORTAINER_BACKUP_URL="https://portainer.kirios.com.ar" --env PORTAINER_BACKUP_OVERWRITE=true --env PORTAINER_BACKUP_TOKEN="ptr_29SQli8ODoM4d0iEOemzjiFbRHPUxDvo0vQHRrfgbQ8=" savagesoftware/portainer-backup:latest backup 
+kirios backup folder "/tmp/portainer/ portal portainer"
+
+curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/7a1bfb26-dae1-434d-866b-b6aafa47c9ee
