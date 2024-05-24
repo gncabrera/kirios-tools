@@ -11,6 +11,6 @@ fi
 TIMESTAMP=$(date "+%Y%m%d")
 sudo docker compose -p $DOCKER_STACK stop 
 
-kirios backup folder $SOURCE_DIR $SERVER_NAME $DOCKER_STACK
+kirios backup folder "$SOURCE_DIR $SERVER_NAME $DOCKER_STACK"
 
 sudo docker compose -p $DOCKER_STACK start
