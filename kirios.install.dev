@@ -5,5 +5,6 @@ sudo ln -s ${PWD} /opt/kirios
 ln -s /opt/kirios/kirios.py /usr/bin/kirios
 chmod +x /usr/bin/kirios
 
+kirios logo
 kirios chmod
 kirios --version

@@ -12,5 +12,4 @@ sudo ln -s /opt/kirios/kirios.py /usr/bin/kirios
 chmod 755 /usr/bin/kirios
 
 kirios logo
-kirios --version
 kirios update

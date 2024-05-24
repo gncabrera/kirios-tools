@@ -101,7 +101,7 @@ def logo():
 def update():    
     runShellCommand('git config --global credential.helper "cache --timeout=36000000"')
     runShellCommand('cd ' + BASE_FOLDER + ' && git checkout -- . && git pull')
-    runShellCommand('sudo chmod -R a+rw ' + BASE_FOLDER)
+    runShellCommand('chmod -R a+rw ' + BASE_FOLDER)
     chmod()
 
 def chmod():
