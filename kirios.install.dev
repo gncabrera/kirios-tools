@@ -1,13 +1,6 @@
 #!/bin/bash
 
-# Checking it's running as sudo
-
-if [ "$EUID" -ne 0 ]
-  then echo "Please, run the installation as root or with sudo"
-  exit
-fi
-
-ln -s ${PWD} /opt/kirios
+sudo ln -s ${PWD} /opt/kirios
 
 ln -s /opt/kirios/kirios.py /usr/bin/kirios
 chmod +x /usr/bin/kirios

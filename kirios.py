@@ -82,12 +82,6 @@ class Script:
                 for dep in result.split(","):
                     self.dependencies.append(dep.strip())
 
-def checkRequirements():
-    # Check That Running Under Sudo
-    if (os.geteuid() != 0):
-        print('Please run this script as root user')
-        exit(-1)
-
 def log(msg):
     if(args.verbose):
         print(msg)
@@ -168,7 +162,6 @@ def check_target():
         exit(-1)
 
 #print(KIRIOS_LOGO)
-checkRequirements()
 
 if (args.action == UPDATE):
     update()
