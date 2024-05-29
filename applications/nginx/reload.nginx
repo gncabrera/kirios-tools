@@ -3,4 +3,4 @@
 # DESCRIPTION: reloads the nginx service
 # DEPENDENCIES: nginx
 
-service nginx reload
+sudo systemctl restart nginx
