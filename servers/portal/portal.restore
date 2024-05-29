@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_DIR=/home/gnicolascabrera/restore
+BASE_DIR=/home/portainer
 sudo mkdir $BASE_DIR
 sudo chown -R $(id -u):$(id -g) $BASE_DIR
 kirios restore folder "$BASE_DIR/vikunja portal vikunja 20240524"
