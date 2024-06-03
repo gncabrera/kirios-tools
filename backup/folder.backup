@@ -9,4 +9,4 @@ if [[ $# -lt 3 ]] ; then
     exit 1
 fi
 
-rclone copy $SOURCE_DIR gncDrive:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ -P --config "/opt/kirios-secrets/rclone.conf"
+rclone copy $SOURCE_DIR gncDrive:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ -P --config "/etc/ansible-scripts/rclone.conf"
