@@ -9,4 +9,4 @@ if [[ $# -lt 3 ]] ; then
     exit 1
 fi
 
-rclone copy gncDrive:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ $TARGET_DIR/ -P --config "/etc/ansible-scripts/rclone.conf"
+rclone copy gnicolascabrera:${SERVER_NAME}_backups/$APP_NAME/${APP_NAME}_${TIMESTAMP}/ $TARGET_DIR/ -P --config "/etc/ansible-scripts/rclone.conf"
