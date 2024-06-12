@@ -1,0 +1,4 @@
+#!/bin/bash
+
+kirios backup docker "/home/portal/ portal home"
+curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/5bc00b85-860a-4d94-9128-b977dc50eda4

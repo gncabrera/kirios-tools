@@ -1,3 +1,2 @@
-0 4 * * * kirios server portal-backup-vikunja | systemd-cat -t backup-vikunja
+0 4 * * * kirios server portal-backup-home | systemd-cat -t backup-home
 5 4 * * 0 kirios server portal-backup-portainer | systemd-cat -t backup-portainer
-10 4 * * 0 kirios server portal-backup-healthchecks | systemd-cat -t backup-healthchecks

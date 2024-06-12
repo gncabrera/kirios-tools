@@ -1,5 +1,0 @@
-#!/bin/bash
-
-kirios backup docker "/home/portal/healthchecks/ portal healthchecks"
-echo "Wait for healthchecks to come back :D"
-curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/278ba55b-2d6a-4e71-b8c6-c358709a60f5
