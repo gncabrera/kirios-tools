@@ -1,4 +1,14 @@
 #!/bin/bash
 
-kirios backup docker "/home/portal/ portal home"
+TIMESTAMP=$(date "+%Y%m%d")
+sudo docker compose -p healthchecks stop
+sudo docker compose -p nginx-proxy-manager stop
+sudo docker compose -p vikunja stop
+
+kirios backup folder "/home/portal/ portal home"
+
+sudo docker compose -p healthchecks start
+sudo docker compose -p nginx-proxy-manager start
+sudo docker compose -p vikunja start
+
 curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/5bc00b85-860a-4d94-9128-b977dc50eda4
