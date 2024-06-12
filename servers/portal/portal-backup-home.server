@@ -11,4 +11,7 @@ sudo docker compose -p healthchecks start
 sudo docker compose -p nginx-proxy-manager start
 sudo docker compose -p vikunja start
 
+echo "Sleeping..."
+sleep 10
+
 curl -fsS -m 10 --retry 5 -o /dev/null https://healthchecks.kirios.com.ar/ping/5bc00b85-860a-4d94-9128-b977dc50eda4
